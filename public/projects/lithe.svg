@@ -1,0 +1,25 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#151022"/>
+      <stop offset="100%" stop-color="#0C1017"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g1)"/>
+  <rect x="24" y="24" width="752" height="452" rx="10" fill="#0F141B" stroke="#241a33" stroke-width="1.5"/>
+  <circle cx="52" cy="52" r="6" fill="#F27878"/>
+  <circle cx="72" cy="52" r="6" fill="#E8B04B"/>
+  <circle cx="92" cy="52" r="6" fill="#7FD88F"/>
+  <text x="400" y="56" text-anchor="middle" font-family="monospace" font-size="14" fill="#7C8A9C">lithephp/framework — routes/web.php</text>
+  <line x1="24" y1="76" x2="776" y2="76" stroke="#241a33" stroke-width="1.5"/>
+  <g font-family="monospace" font-size="16" fill="#C792EA">
+    <text x="56" y="130">use function Lithe\Orbis\http\Router;</text>
+    <text x="56" y="170" fill="#7C8A9C">$app = new Lithe\App();</text>
+    <text x="56" y="210"><tspan fill="#C792EA">$app</tspan><tspan fill="#7C8A9C">-&gt;</tspan><tspan fill="#5CCFE6">get</tspan><tspan fill="#7C8A9C">(</tspan><tspan fill="#E8B04B">'/hello/:name'</tspan><tspan fill="#7C8A9C">, function ($req, $res) {</tspan></text>
+    <text x="90" y="250" fill="#7C8A9C">$res-&gt;<tspan fill="#5CCFE6">send</tspan>(<tspan fill="#E8B04B">'Hello, '</tspan> . $req-&gt;param(<tspan fill="#E8B04B">'name'</tspan>));</text>
+    <text x="56" y="290" fill="#7C8A9C">});</text>
+    <text x="56" y="330" fill="#586372">$app-&gt;listen();</text>
+  </g>
+  <rect x="56" y="380" width="180" height="40" rx="6" fill="#151022" stroke="#C792EA" stroke-opacity="0.5"/>
+  <text x="146" y="405" text-anchor="middle" font-family="monospace" font-size="14" fill="#C792EA">MIT · 24★ · PHP 8.2+</text>
+</svg>
