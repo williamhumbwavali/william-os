@@ -19,7 +19,7 @@ const SECTION_IDS = [
   "lithe",
   "baza",
   "rialse",
-  "music",
+  "bvf",
   "skills",
   "education",
   "contact",

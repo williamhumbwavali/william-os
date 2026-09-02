@@ -34,9 +34,9 @@ const aliases: Record<string, string> = {
 
   rialse: "rialse",
 
-  music: "music",
-  musica: "music",
-  "música": "music",
+  bvf: "bvf",
+  bvfa: "bvf",
+  "música": "bvf",
 
   about: "about",
   sobre: "about",
@@ -146,8 +146,8 @@ function projectOutput(id: string): CommandResult {
         text: `a abrir projects/${
           id === "lithe"
             ? "lithe-php"
-            : id === "music"
-              ? "music-app"
+            : id === "bvf"
+              ? "bvf"
               : id
         }/...`,
         tone: "green",
@@ -254,8 +254,8 @@ export function runCommand(raw: string): CommandResult {
               text: `  ${
                 p.id === "lithe"
                   ? "lithe-php"
-                  : p.id === "music"
-                    ? "music-app"
+                  : p.id === "bvf"
+                    ? "bvf"
                     : p.id
               }/ — ${p.tagline}`,
               tone: "muted" as const,
@@ -324,7 +324,7 @@ export function runCommand(raw: string): CommandResult {
             },
             {
               text:
-                "tenta: open lithe | open baza | open rialse | open music | open experience",
+                "tenta: open lithe | open baza | open rialse | open bvf | open experience",
               tone: "muted",
             },
           ],

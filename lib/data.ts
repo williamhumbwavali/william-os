@@ -31,15 +31,15 @@ export const files: NavFile[] = [
     ext: "tsx",
   },
   {
-    id: "rialse",
-    label: "store.php",
-    path: "projects/rialse/",
+    id: "bvf",
+    label: "music.ts",
+    path: "projects/bvf/",
     ext: "ts",
   },
   {
-    id: "music",
-    label: "player.ts",
-    path: "projects/music-app/",
+    id: "rialse",
+    label: "store.php",
+    path: "projects/rialse/",
     ext: "ts",
   },
   {
@@ -133,23 +133,40 @@ export const projects: Project[] = [
     accent: "cyan",
   },
   {
-    id: "music",
-    fileId: "music",
+    id: "bvf",
+    fileId: "bvf",
     name: "Bad Vibes Forever",
-    tagline: "Uma plataforma para descobrir, viver e se conectar com a música independente",
+    tagline: "Plataforma de música para descobrir, ouvir e interagir",
     description:
-      "Plataforma musical focada em artistas independentes e na cena underground. O BVF busca ir além do simples streaming, criando um espaço onde as pessoas possam descobrir novos artistas, explorar suas músicas, acompanhar seus trabalhos e conhecer as histórias por trás de cada criação. O projeto reúne descoberta musical, perfis de artistas, playlists, interação e uma experiência construída para aproximar o ouvinte da cena.",
+      "Plataforma de música desenvolvida de ponta a ponta, com autenticação, perfis de utilizador, artistas, seguidores, álbuns, playlists, favoritos, reprodução, histórico, downloads e upload de músicas. O projeto inclui frontend, API REST, base de dados, autenticação e armazenamento de ficheiros através do Cloudflare R2.",
     stack: [
       "Next.js",
       "React",
       "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
       "NestJS",
       "Node.js",
       "PostgreSQL",
       "TypeORM",
-      "Docker"
+      "Docker",
+      "Cloudflare R2"
     ],
-    links: [],
+    stats: [
+      { label: "Status", value: "Concluído" },
+      { label: "Arquitetura", value: "Full-Stack" },
+      { label: "API", value: "REST" }
+    ],
+    links: [
+      {
+        label: "Frontend →",
+        href: "https://github.com/williamhumbwavali/bvf-frontend"
+      },
+      {
+        label: "API →",
+        href: "https://github.com/williamhumbwavali/bvf-api"
+      }
+    ],
     cover: "/projects/bvf.png",
     accent: "green",
   },
@@ -202,7 +219,7 @@ export const skills = {
     "Inertia.js",
     "Vue.js",
     "Bootstrap",
-    "JQuery"
+    "jQuery"
   ],
 
   backend: [
@@ -211,7 +228,7 @@ export const skills = {
     "Express.js",
     "Laravel",
     "Lithe (autoral)",
-    "REST APIs",
+    "REST APIs"
   ],
 
   bancosDeDados: [
@@ -219,13 +236,25 @@ export const skills = {
     "MySQL",
     "MongoDB",
     "TypeORM",
-    "Eloquent",
+    "Eloquent"
   ],
 
   infraestrutura: [
     "Docker",
     "Docker Compose",
+    "Linux",
     "Vercel",
+    "Cloudflare R2"
+  ],
+
+  devops: [
+    "CI/CD",
+    "Docker",
+    "Docker Compose",
+    "Cloud Deployment",
+    "Production Deployments",
+    "Environment Management",
+    "Linux"
   ],
 
   ferramentas: [
@@ -233,7 +262,7 @@ export const skills = {
     "GitHub",
     "Composer",
     "Swagger / OpenAPI",
-    "Postman",
+    "Postman"
   ],
 
   engenharia: [
@@ -241,13 +270,13 @@ export const skills = {
     "Authentication & Authorization",
     "JWT",
     "Database Modeling",
+    "DDD",
     "MVC",
     "Middleware",
     "Routing",
-    "Modular Architecture",
+    "Modular Architecture"
   ],
 };
-
 export const timeline = [
   {
     period: "Em curso",

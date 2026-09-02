@@ -18,7 +18,7 @@ const BOOT_SCRIPT: BootLine[] = [
     tone: "muted",
   },
   { prompt: true, text: "ls ./projects" },
-  { prompt: false, text: "lithe-php/  baza/  rialse/  music-app/", tone: "cyan" },
+  { prompt: false, text: "lithe-php/  baza/  rialse/  bvf/", tone: "cyan" },
 ];
 
 const QUICK_COMMANDS = [

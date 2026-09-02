@@ -9,6 +9,7 @@ const rows: { key: keyof typeof skills; label: string }[] = [
   { key: "infraestrutura", label: "infraestrutura" },
   { key: "ferramentas", label: "ferramentas" },
   { key: "engenharia", label: "engenharia" },
+  { key: "devops", label: "devops" },
 ];
 
 export default function Skills() {

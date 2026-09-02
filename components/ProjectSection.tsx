@@ -24,7 +24,7 @@ export default function ProjectSection({
     >
       <div className="mx-auto max-w-5xl">
         <p className={`mb-2 font-mono text-xs uppercase tracking-[0.2em] ${accent.text}`}>
-          projects/{project.id === "lithe" ? "lithe-php" : project.id === "music" ? "music-app" : project.id}
+          projects/{project.id === "lithe" ? "lithe-php" : project.id === "bvf" ? "bvf" : project.id}
           /
         </p>
         <div className="mb-8 flex items-baseline gap-3">

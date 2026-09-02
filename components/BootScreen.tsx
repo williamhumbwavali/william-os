@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const BOOT_LOG = [
   "a carregar whOS v1.0...",
   "a montar /about",
-  "a montar /projects (lithe-php, baza, rialse, music-app)",
+  "a montar /projects (lithe-php, baza, rialse, bvf)",
   "a iniciar terminal interativo...",
   "pronto.",
 ];
