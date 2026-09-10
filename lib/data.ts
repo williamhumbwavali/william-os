@@ -25,6 +25,12 @@ export const files: NavFile[] = [
     ext: "php",
   },
   {
+    id: "bando",
+    label: "cms.ts",
+    path: "projects/bando/",
+    ext: "ts",
+  },
+  {
     id: "baza",
     label: "app.tsx",
     path: "projects/baza/",
@@ -40,7 +46,7 @@ export const files: NavFile[] = [
     id: "rialse",
     label: "store.php",
     path: "projects/rialse/",
-    ext: "ts",
+    ext: "php",
   },
   {
     id: "skills",
@@ -91,20 +97,72 @@ export const projects: Project[] = [
     tagline: "Framework PHP open-source, inspirado em Express.js",
     description:
       "Framework próprio, escrito do zero, focado em simplicidade e velocidade de desenvolvimento. Publicado no Packagist como lithephp/framework, com mais de duas dezenas de estrelas no GitHub e um pequeno ecossistema de pacotes satélite (lithemod/env, lithemod/upload, lithemod/log, lithemod/validator, lithemod/session-support, lithemod/jwt-auth, entre outros) que resolvem problemas comuns de forma isolada e reutilizável.",
-    stack: ["PHP 8.2+", "Composer", "PSR", "Symfony Console", "PHPUnit"],
+    stack: [
+      "PHP 8.2+",
+      "Composer",
+      "PSR",
+      "Symfony Console",
+      "PHPUnit",
+    ],
     stats: [
-      { label: "Estrelas GitHub", value: "24+" },
+      { label: "Estrelas GitHub", value: "25+" },
       { label: "Pacotes no ecossistema", value: "10+" },
       { label: "Licença", value: "MIT" },
     ],
     links: [
-      { label: "Packagist →", href: "https://packagist.org/packages/lithephp/framework" },
-      { label: "GitHub →", href: "https://github.com/lithephp/framework" },
-      { label: "Documentação →", href: "https://pt-lithephp.vercel.app/" },
+      {
+        label: "Packagist →",
+        href: "https://packagist.org/packages/lithephp/framework",
+      },
+      {
+        label: "GitHub →",
+        href: "https://github.com/lithephp/framework",
+      },
+      {
+        label: "Documentação →",
+        href: "https://pt-lithephp.vercel.app/",
+      },
     ],
-    cover: "/projects/lithe.svg",
+    cover: "/projects/lithe.png",
     accent: "purple",
   },
+
+  {
+    id: "bando",
+    fileId: "bando",
+    name: "Bando CMS",
+    tagline: "CMS headless open-source para developers",
+    description:
+      "Um CMS headless open-source e self-hosted criado para developers que precisam construir sites e plataformas de conteúdo sem ter de desenvolver um backend de CMS do zero. O Bando permite modelar collections, definir campos e relacionamentos, gerir conteúdo através de um Studio e consumir os dados através de um client tipado, tornando mais simples criar blogs, sites institucionais, portais e outras plataformas orientadas a conteúdo.",
+    stack: [
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "React",
+      "Next.js",
+      "REST API",
+      "Docker"
+    ],
+    stats: [
+      { label: "Tipo", value: "Headless CMS" },
+      { label: "Licença", value: "Open Source" },
+      { label: "Arquitetura", value: "Self-hosted" },
+    ],
+    links: [
+      {
+        label: "GitHub →",
+        href: "https://github.com/Bando-CMS",
+      },
+      {
+        label: "Website →",
+        href: "https://bando-cms.vercel.app/",
+      },
+    ],
+    cover: "/projects/bando-studio.png",
+    accent: "cyan",
+  },
+
   {
     id: "baza",
     fileId: "baza",
@@ -120,18 +178,22 @@ export const projects: Project[] = [
       "MySQL",
       "Docker",
       "TypeORM",
-      "Tailwind CSS"
+      "Tailwind CSS",
     ],
     stats: [
       { label: "Fase", value: "Pré-lançamento" },
-      { label: "Mercado", value: "Luanda, Angola" }
+      { label: "Mercado", value: "Luanda, Angola" },
     ],
     links: [
-      { label: "Ver site →", href: "https://bazaja.vercel.app/" }
+      {
+        label: "Ver site →",
+        href: "https://bazaja.vercel.app/",
+      },
     ],
     cover: "/projects/baza_1.png",
     accent: "cyan",
   },
+
   {
     id: "bvf",
     fileId: "bvf",
@@ -150,26 +212,27 @@ export const projects: Project[] = [
       "PostgreSQL",
       "TypeORM",
       "Docker",
-      "Cloudflare R2"
+      "Cloudflare R2",
     ],
     stats: [
       { label: "Status", value: "Concluído" },
       { label: "Arquitetura", value: "Full-Stack" },
-      { label: "API", value: "REST" }
+      { label: "API", value: "REST" },
     ],
     links: [
       {
         label: "Frontend →",
-        href: "https://github.com/williamhumbwavali/bvf-frontend"
+        href: "https://github.com/williamhumbwavali/bvf-frontend",
       },
       {
         label: "API →",
-        href: "https://github.com/williamhumbwavali/bvf-api"
-      }
+        href: "https://github.com/williamhumbwavali/bvf-api",
+      },
     ],
     cover: "/projects/bvf.png",
     accent: "green",
   },
+
   {
     id: "rialse",
     fileId: "rialse",
@@ -184,18 +247,17 @@ export const projects: Project[] = [
       "Eloquent",
       "Blade",
       "MySQL",
-      "Checkout"
+      "Checkout",
     ],
     stats: [
       { label: "Categorias", value: "9" },
       { label: "Mercado", value: "Angola" },
-      { label: "Framework", value: "Lithe" }
+      { label: "Framework", value: "Lithe" },
     ],
     links: [],
     cover: "/projects/rialse.png",
     accent: "amber",
-  }
-
+  },
 ];
 
 export const skills = {
@@ -207,7 +269,7 @@ export const skills = {
     "SQL",
     "HTML",
     "CSS",
-    "Python"
+    "Python",
   ],
 
   frontend: [
@@ -219,7 +281,7 @@ export const skills = {
     "Inertia.js",
     "Vue.js",
     "Bootstrap",
-    "jQuery"
+    "jQuery",
   ],
 
   backend: [
@@ -228,7 +290,7 @@ export const skills = {
     "Express.js",
     "Laravel",
     "Lithe (autoral)",
-    "REST APIs"
+    "REST APIs",
   ],
 
   bancosDeDados: [
@@ -236,7 +298,7 @@ export const skills = {
     "MySQL",
     "MongoDB",
     "TypeORM",
-    "Eloquent"
+    "Eloquent",
   ],
 
   infraestrutura: [
@@ -244,7 +306,7 @@ export const skills = {
     "Docker Compose",
     "Linux",
     "Vercel",
-    "Cloudflare R2"
+    "Cloudflare R2",
   ],
 
   devops: [
@@ -254,7 +316,7 @@ export const skills = {
     "Cloud Deployment",
     "Production Deployments",
     "Environment Management",
-    "Linux"
+    "Linux",
   ],
 
   ferramentas: [
@@ -262,7 +324,7 @@ export const skills = {
     "GitHub",
     "Composer",
     "Swagger / OpenAPI",
-    "Postman"
+    "Postman",
   ],
 
   engenharia: [
@@ -274,9 +336,10 @@ export const skills = {
     "MVC",
     "Middleware",
     "Routing",
-    "Modular Architecture"
+    "Modular Architecture",
   ],
 };
+
 export const timeline = [
   {
     period: "Em curso",
@@ -285,6 +348,7 @@ export const timeline = [
     description:
       "Formação formal em engenharia informática: fundamentos de algoritmos, estruturas de dados, redes e engenharia de software.",
   },
+
   {
     period: "1 ano",
     title: "42 Luanda",
@@ -292,10 +356,11 @@ export const timeline = [
     description:
       "Metodologia sem professores nem aulas: aprendizagem por projetos, revisão entre pares e resolução de problemas sob pressão — de C a algoritmos de sistema.",
   },
+
   {
     period: "Contínuo",
     title: "Produtos em produção",
-    place: "Lithe PHP · Baza · Rialse · Bad Vibes Forever",
+    place: "Lithe PHP · Baza · Rialse · Bad Vibes Forever · Bando CMS",
     description:
       "A verdadeira escola: construir, publicar e manter software que pessoas reais usam.",
   },
@@ -311,6 +376,7 @@ export const experience = [
       "Startup de mobilidade urbana focada em estudantes. Coordenei a equipe de desenvolvimento, participei da definição do roadmap e das decisões técnicas, além de desenvolver funcionalidades da plataforma como rastreamento em tempo real e agendamento.",
     stack: ["Laravel", "PHP", "Vue.js", "Inertia.js"],
   },
+
   {
     period: "Freelance",
     title: "Front-End Developer",

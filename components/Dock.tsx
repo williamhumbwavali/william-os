@@ -26,6 +26,13 @@ export const DOCK_APPS: DockApp[] = [
     href: "https://bazaja.vercel.app",
   },
   {
+    id: "bando",
+    name: "Bando",
+    icon: "/Bando.png",
+    type: "image",
+    href: "https://bando-cms.vercel.app",
+  },
+  {
     id: "lithe",
     name: "Lithe",
     icon: "/lithecore.png",

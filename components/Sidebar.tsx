@@ -34,7 +34,7 @@ export default function Sidebar({
     },
     {
       label: "projects",
-      ids: ["lithe", "baza", "rialse", "bvf"],
+      ids: ["lithe", "bando", "baza", "bvf", "rialse"],
     },
     {
       label: "skills",

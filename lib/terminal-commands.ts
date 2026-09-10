@@ -30,6 +30,10 @@ const aliases: Record<string, string> = {
   "lithe-php": "lithe",
   lithephp: "lithe",
 
+  bando: "bando",
+  "bando-cms": "bando",
+  cms: "bando",
+
   baza: "baza",
 
   rialse: "rialse",
@@ -120,10 +124,32 @@ const HELP_LINES: OutputLine[] = [
   },
   {
     text:
-      "dica: não precisas de saber comandos — usa os botões abaixo ou o menu à esquerda.",
+      'dica: open bando | open lithe | open baza | open bvf | open rialse',
     tone: "cyan",
   },
 ];
+
+function projectPath(id: string) {
+  switch (id) {
+    case "lithe":
+      return "lithe-php";
+
+    case "bando":
+      return "bando";
+
+    case "bvf":
+      return "bvf";
+
+    case "baza":
+      return "baza";
+
+    case "rialse":
+      return "rialse";
+
+    default:
+      return id;
+  }
+}
 
 function projectOutput(id: string): CommandResult {
   const p = projects.find((pr) => pr.id === id);
@@ -143,13 +169,7 @@ function projectOutput(id: string): CommandResult {
     navigateTo: id,
     lines: [
       {
-        text: `a abrir projects/${
-          id === "lithe"
-            ? "lithe-php"
-            : id === "bvf"
-              ? "bvf"
-              : id
-        }/...`,
+        text: `a abrir projects/${projectPath(id)}/...`,
         tone: "green",
       },
       {
@@ -199,7 +219,7 @@ export function runCommand(raw: string): CommandResult {
             tone: "ink",
           },
           {
-            text: "Engenheiro de Software · Luanda, Angola",
+            text: "Developer · Luanda, Angola",
             tone: "muted",
           },
         ],
@@ -215,7 +235,7 @@ export function runCommand(raw: string): CommandResult {
           },
           {
             text:
-              "Estudante de Engenharia Informática (UGS) e ex-42 Luanda. Construo produtos do zero: um framework PHP, uma app de mobilidade, uma loja online.",
+              "Estudante de Engenharia Informática (UGS) e ex-42 Luanda. Construo produtos do zero: frameworks, CMS, aplicações web e mobile e ferramentas para developers.",
             tone: "muted",
           },
         ],
@@ -251,13 +271,7 @@ export function runCommand(raw: string): CommandResult {
               tone: "amber",
             },
             ...projects.map((p) => ({
-              text: `  ${
-                p.id === "lithe"
-                  ? "lithe-php"
-                  : p.id === "bvf"
-                    ? "bvf"
-                    : p.id
-              }/ — ${p.tagline}`,
+              text: `  ${projectPath(p.id)}/ — ${p.tagline}`,
               tone: "muted" as const,
             })),
           ],
@@ -306,7 +320,7 @@ export function runCommand(raw: string): CommandResult {
             tone: "muted" as const,
           })),
           {
-            text: 'usa "open <nome>" para veres mais, ex: open lithe',
+            text: 'usa "open <nome>" para veres mais, ex: open bando',
             tone: "cyan",
           },
         ],
@@ -324,7 +338,7 @@ export function runCommand(raw: string): CommandResult {
             },
             {
               text:
-                "tenta: open lithe | open baza | open rialse | open bvf | open experience",
+                "tenta: open bando | open lithe | open baza | open rialse | open bvf | open experience",
               tone: "muted",
             },
           ],
@@ -379,7 +393,7 @@ export function runCommand(raw: string): CommandResult {
             },
             {
               text:
-                "tenta: cat about.md | cat experience.md | cat contact.md | cat lithe",
+                "tenta: cat about.md | cat experience.md | cat contact.md | cat bando",
               tone: "muted",
             },
           ],
