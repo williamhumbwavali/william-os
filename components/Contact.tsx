@@ -50,7 +50,7 @@ export default function Contact() {
         </CodeFrame>
 
         <p className="mt-10 font-mono text-xs text-mutedDark">
-          feito com Next.js + Tailwind, por William Humbwavali · {new Date().getFullYear()}
+          ©{new Date().getFullYear()}  William Humbwavali. All rights reserved.
         </p>
       </div>
     </section>

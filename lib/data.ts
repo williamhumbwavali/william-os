@@ -89,7 +89,87 @@ export type Project = {
   accent: "cyan" | "purple" | "amber" | "green";
 };
 
+export const site = {
+  name: "William Humbwavali",
+  role: "Full-Stack Software Engineer",
+  headline: "Building products with React, Next.js & NestJS.",
+  description:
+    "Construo aplicações web modernas e APIs com foco em arquitetura, qualidade de código e produtos reais.",
+  primaryStack: ["TypeScript", "React", "Next.js", "NestJS", "PostgreSQL", "Docker"],
+  copyright: "© 2026 William Humbwavali · Built with Next.js & Tailwind CSS.",
+};
+
 export const projects: Project[] = [
+  {
+    id: "baza",
+    fileId: "baza",
+    name: "Baza",
+    tagline: "Plataforma de mobilidade urbana construída com NestJS",
+    description:
+      "Uma plataforma de mobilidade por assinatura criada para estudantes e trabalhadores em Luanda. O Baza permite reservar um lugar antecipadamente e utilizar transporte com rota e horário definidos, através de planos semanais ou mensais. Como cofundador e CEO, conduzo o projeto desde a concepção da ideia até à construção do produto, participando da estratégia, arquitetura, desenvolvimento e experiência do utilizador. O ecossistema inclui aplicações para passageiros e motoristas, painel administrativo, backend e infraestrutura, além do site de pré-lançamento.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "React Native",
+      "MySQL",
+      "Docker",
+      "TypeORM",
+      "Tailwind CSS",
+    ],
+    stats: [
+      { label: "Fase", value: "Pré-lançamento" },
+      { label: "Mercado", value: "Luanda, Angola" },
+    ],
+    links: [
+      {
+        label: "Ver site →",
+        href: "https://bazaja.vercel.app/",
+      },
+    ],
+    cover: "/projects/baza_1.png",
+    accent: "cyan",
+  },
+
+  {
+    id: "bvf",
+    fileId: "bvf",
+    name: "Bad Vibes Forever",
+    tagline: "Plataforma de música full-stack com NestJS",
+    description:
+      "Plataforma de música desenvolvida de ponta a ponta, com autenticação, perfis de utilizador, artistas, seguidores, álbuns, playlists, favoritos, reprodução, histórico, downloads e upload de músicas. O projeto inclui frontend, API REST, base de dados, autenticação e armazenamento de ficheiros através do Cloudflare R2.",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Zustand",
+      "NestJS",
+      "Node.js",
+      "PostgreSQL",
+      "TypeORM",
+      "Docker",
+      "Cloudflare R2",
+    ],
+    stats: [
+      { label: "Status", value: "Concluído" },
+      { label: "Arquitetura", value: "Full-Stack" },
+      { label: "API", value: "REST" },
+    ],
+    links: [
+      {
+        label: "Frontend →",
+        href: "https://github.com/williamhumbwavali/bvf-frontend",
+      },
+      {
+        label: "API →",
+        href: "https://github.com/williamhumbwavali/bvf-api",
+      },
+    ],
+    cover: "/projects/bvf.png",
+    accent: "green",
+  },
+
   {
     id: "lithe",
     fileId: "lithe",
@@ -164,76 +244,6 @@ export const projects: Project[] = [
   },
 
   {
-    id: "baza",
-    fileId: "baza",
-    name: "Baza",
-    tagline: "Mobilidade urbana por assinatura em Angola",
-    description:
-      "Uma plataforma de mobilidade por assinatura criada para estudantes e trabalhadores em Luanda. O Baza permite reservar um lugar antecipadamente e utilizar transporte com rota e horário definidos, através de planos semanais ou mensais. Como cofundador e CEO, conduzo o projeto desde a concepção da ideia até à construção do produto, participando da estratégia, arquitetura, desenvolvimento e experiência do utilizador. O ecossistema inclui aplicações para passageiros e motoristas, painel administrativo, backend e infraestrutura, além do site de pré-lançamento.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "NestJS",
-      "React Native",
-      "MySQL",
-      "Docker",
-      "TypeORM",
-      "Tailwind CSS",
-    ],
-    stats: [
-      { label: "Fase", value: "Pré-lançamento" },
-      { label: "Mercado", value: "Luanda, Angola" },
-    ],
-    links: [
-      {
-        label: "Ver site →",
-        href: "https://bazaja.vercel.app/",
-      },
-    ],
-    cover: "/projects/baza_1.png",
-    accent: "cyan",
-  },
-
-  {
-    id: "bvf",
-    fileId: "bvf",
-    name: "Bad Vibes Forever",
-    tagline: "Plataforma de música para descobrir, ouvir e interagir",
-    description:
-      "Plataforma de música desenvolvida de ponta a ponta, com autenticação, perfis de utilizador, artistas, seguidores, álbuns, playlists, favoritos, reprodução, histórico, downloads e upload de músicas. O projeto inclui frontend, API REST, base de dados, autenticação e armazenamento de ficheiros através do Cloudflare R2.",
-    stack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Zustand",
-      "NestJS",
-      "Node.js",
-      "PostgreSQL",
-      "TypeORM",
-      "Docker",
-      "Cloudflare R2",
-    ],
-    stats: [
-      { label: "Status", value: "Concluído" },
-      { label: "Arquitetura", value: "Full-Stack" },
-      { label: "API", value: "REST" },
-    ],
-    links: [
-      {
-        label: "Frontend →",
-        href: "https://github.com/williamhumbwavali/bvf-frontend",
-      },
-      {
-        label: "API →",
-        href: "https://github.com/williamhumbwavali/bvf-api",
-      },
-    ],
-    cover: "/projects/bvf.png",
-    accent: "green",
-  },
-
-  {
     id: "rialse",
     fileId: "rialse",
     name: "Rialse",
@@ -257,14 +267,14 @@ export const projects: Project[] = [
     links: [],
     cover: "/projects/rialse.png",
     accent: "amber",
-  },
+  }
 ];
 
 export const skills = {
   linguagens: [
-    "PHP",
     "TypeScript",
     "JavaScript",
+    "PHP",
     "C",
     "SQL",
     "HTML",
@@ -285,12 +295,12 @@ export const skills = {
   ],
 
   backend: [
-    "Node.js",
     "NestJS",
+    "Node.js",
+    "REST APIs",
     "Express.js",
     "Laravel",
     "Lithe (autoral)",
-    "REST APIs",
   ],
 
   bancosDeDados: [
@@ -369,17 +379,17 @@ export const timeline = [
 export const experience = [
   {
     period: "2025",
-    title: "Development Lead / Full-Stack Developer",
+    title: "Líder de Desenvolvimento / Desenvolvedor Full-Stack",
     company: "Njila",
     location: "Angola",
     description:
-      "Startup de mobilidade urbana focada em estudantes. Coordenei a equipe de desenvolvimento, participei da definição do roadmap e das decisões técnicas, além de desenvolver funcionalidades da plataforma como rastreamento em tempo real e agendamento.",
+      "Aos 19 anos, assumi a liderança do desenvolvimento de uma startup de mobilidade urbana focada em estudantes. Coordenei a equipe de desenvolvimento, participei da definição do roadmap e das decisões de arquitetura, segurança e performance, além de desenvolver funcionalidades como rastreamento em tempo real e agendamento.",
     stack: ["Laravel", "PHP", "Vue.js", "Inertia.js"],
   },
 
   {
     period: "Freelance",
-    title: "Front-End Developer",
+    title: "Desenvolvedor Front-End",
     company: "Cubicou.ao",
     location: "Angola",
     description:
