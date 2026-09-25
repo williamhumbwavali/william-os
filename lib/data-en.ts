@@ -265,7 +265,7 @@ export const projects: Project[] = [
       },
       {
         label: "Documentation →",
-        href: "https://pt-lithephp.vercel.app/",
+        href: "https://lithephp.vercel.app/",
       },
     ],
     cover: "/projects/lithe.png",
@@ -310,7 +310,7 @@ export const projects: Project[] = [
       },
       {
         label: "Website →",
-        href: "https://bando-cms.vercel.app/",
+        href: "https://bando-cms.vercel.app/en",
       },
       {
         label: "npm →",
