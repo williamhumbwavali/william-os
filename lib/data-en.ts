@@ -99,7 +99,7 @@ export const site = {
   name: "William Humbwavali",
   role: "Software Developer",
 
-  headline: "I build software, tools, and platforms.",
+  headline: "William Humbwavali",
 
   description:
     "I'm William Humbwavali, a Software Developer from Angola with experience building web and mobile applications, tools, and open-source software. I primarily work with PHP and JavaScript/TypeScript, using technologies such as React, Next.js, React Native, and NestJS. I've led development at 19 and built products of my own. Here you can explore my work, projects, and experience through the terminal.",
