@@ -1,16 +1,20 @@
 # Portfólio — William Humbwavali
 
-Portfólio pessoal construído com **Next.js 14 (App Router)**, **TypeScript**
-e **Tailwind CSS**, com uma estética de editor de código: barra lateral tipo
-explorador de ficheiros, separadores no topo e cada secção apresentada como
-um ficheiro aberto (`bio.md`, `README.md`, `app.tsx`, `store.ts`, `stack.json`...).
+Portfólio pessoal construído com **Next.js 16 (App Router)**, **TypeScript** e **Tailwind CSS**, com uma estética inspirada em editores de código: barra lateral tipo explorador de ficheiros, separadores no topo, terminal interativo e cada secção apresentada como um ficheiro aberto (`bio.md`, `README.md`, `experience.md`, `stack.json`...).
+
+O portfólio está disponível em português e inglês:
+
+- `/` — Português
+- `/en` — English
+
+A interface é compartilhada entre os dois idiomas, enquanto o conteúdo é separado por ficheiros de dados (`data.ts` e `data-en.ts`).
 
 ## Correr localmente
 
 ```bash
 npm install
 npm run dev
-```
+````
 
 Abre [http://localhost:3000](http://localhost:3000).
 
@@ -23,22 +27,70 @@ npm run start
 
 ## Estrutura
 
-```
+```text
 app/
-  layout.tsx      # fontes (Space Grotesk, Inter, JetBrains Mono) + metadata
-  page.tsx         # monta a página: sidebar, tabs, secções, scroll-spy
-  globals.css      # tema global (cores, animações, scrollbar)
+├── layout.tsx
+├── page.tsx
+└── en/
+    └── page.tsx
+
 components/
-  CodeFrame.tsx    # "janela" de editor reutilizada em cada secção
-  Sidebar.tsx       # árvore de ficheiros (navegação desktop)
-  TabBar.tsx        # separadores no topo (navegação mobile + desktop)
-  Hero.tsx          # terminal animado de introdução
-  About.tsx
-  ProjectSection.tsx
-  Skills.tsx
-  Education.tsx
-  Contact.tsx
+├── Home.tsx
+├── CodeFrame.tsx
+├── Sidebar.tsx
+├── TabBar.tsx
+├── Hero.tsx
+├── InteractiveTerminal.tsx
+├── BootScreen.tsx
+├── About.tsx
+├── Experience.tsx
+├── ProjectSection.tsx
+├── Skills.tsx
+├── Education.tsx
+├── Contact.tsx
+└── ...
+
 lib/
-  data.ts          # TODO O CONTEÚDO do site (projetos, skills, timeline, links)
+├── data.ts
+├── data-en.ts
+└── terminal-commands.ts
+
 public/
-  projects/*.svg   # capas ilustrativas
+└── projects/
+    └── *.svg
+```
+
+## Tecnologias
+
+* **Next.js 16**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **Lucide React**
+* **Next.js App Router**
+
+## Arquitetura
+
+A interface e o conteúdo são separados.
+
+Os componentes são compartilhados entre as versões portuguesa e inglesa, enquanto cada idioma possui o seu próprio conjunto de dados.
+
+```text
+data.ts
+   │
+   ├──> Home.tsx
+   │
+   └──> componentes compartilhados
+
+data-en.ts
+   │
+   ├──> Home.tsx
+   │
+   └──> componentes compartilhados
+```
+
+Essa abordagem evita a duplicação de componentes e permite adicionar novos idiomas ou conteúdos sem alterar a estrutura da interface.
+
+## Licença
+
+Este projeto é um portfólio pessoal de William Humbwavali.

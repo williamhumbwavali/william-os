@@ -2,17 +2,44 @@
 
 import InteractiveTerminal from "./InteractiveTerminal";
 
-export default function Hero({
-  onNavigate,
-  terminalOpen,
-  onOpenTerminal,
-  onCloseTerminal,
-}: {
+interface HeroProps {
+  data: {
+    headline: string;
+    description: string;
+    sessionStarted: string;
+    terminalClosed: string;
+    openProjects: string;
+    viewExperience: string;
+    openContact: string;
+  };
+
+  terminal: {
+    closeLabel: string;
+    ariaLabel: string;
+    placeholder: string;
+    quickLabel: string;
+    home: string;
+    bootScript: {
+      prompt: boolean;
+      text: string;
+      tone?: "ink" | "muted" | "cyan" | "green" | "amber";
+    }[];
+  };
+
   onNavigate: (id: string) => void;
   terminalOpen: boolean;
   onOpenTerminal: () => void;
   onCloseTerminal: () => void;
-}) {
+}
+
+export default function Hero({
+  data,
+  terminal,
+  onNavigate,
+  terminalOpen,
+  onOpenTerminal,
+  onCloseTerminal,
+}: HeroProps) {
   return (
     <section
       id="hero"
@@ -21,28 +48,22 @@ export default function Hero({
       <div className="mx-auto max-w-3xl">
         <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan/20 bg-cyan/5 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-cyan backdrop-blur-sm">
           <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
-          full-stack.engineer — sessão iniciada
+          {data.sessionStarted}
         </span>
 
         <h1 className="mb-6 font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl">
-          Construo produtos digitais do zero ao mundo real.
+          {data.headline}
         </h1>
 
         <p className="mb-10 max-w-2xl font-body text-base text-muted sm:text-lg">
-          Sou William Humbwavali, Full-Stack Software Engineer focado em
-          construir aplicações web modernas com{" "}
-          <span className="text-ink">React, Next.js, React Native e NestJS</span>.
-          <br />
-          <br />
-          Já liderei desenvolvimento aos 19 anos, construí produtos próprios
-          e criei software open source. Aqui podes explorar o meu trabalho,
-          projetos e experiência através do terminal.
+          {data.description}
         </p>
 
         {terminalOpen ? (
           <InteractiveTerminal
             onNavigate={onNavigate}
             onClose={onCloseTerminal}
+            terminal={terminal}
           />
         ) : (
           <button
@@ -50,7 +71,7 @@ export default function Hero({
             className="focus-ring flex w-full items-center gap-3 rounded-lg border border-dashed border-line bg-panel px-5 py-6 text-left font-mono text-sm text-muted transition-colors hover:border-cyan/40 hover:text-cyan"
           >
             <span className="text-lg">▢</span>
-            terminal.app — fechado. clica para abrir.
+            {data.terminalClosed}
           </button>
         )}
 
@@ -59,21 +80,21 @@ export default function Hero({
             onClick={() => onNavigate("baza")}
             className="focus-ring rounded-md border border-cyan/40 bg-cyan/10 px-5 py-2.5 font-mono text-sm text-cyan transition-colors hover:bg-cyan/20"
           >
-            $ open ./projects
+            {data.openProjects}
           </button>
 
           <button
             onClick={() => onNavigate("experience")}
             className="focus-ring rounded-md border border-line px-5 py-2.5 font-mono text-sm text-muted transition-colors hover:border-mutedDark hover:text-ink"
           >
-            $ cat experience.md
+            {data.viewExperience}
           </button>
 
           <button
             onClick={() => onNavigate("contact")}
             className="focus-ring rounded-md border border-line px-5 py-2.5 font-mono text-sm text-muted transition-colors hover:border-mutedDark hover:text-ink"
           >
-            $ open contact.md
+            {data.openContact}
           </button>
         </div>
       </div>

@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Google_Sans, JetBrains_Mono } from "next/font/google";
+
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Google_Sans({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-display",
 });
 
-const body = Inter({
+const body = Google_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-body",
@@ -21,13 +22,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "William Humbwavali — Engenheiro de Software",
+  title: "William Humbwavali — Software Developer",
   description:
-    "Portfólio de William Humbwavali: criador do framework Lithe PHP, cofundador do Baza, fundador da Rialse. Engenharia Informática na UGS, ex-42 Luanda.",
+    "Portfólio de William Humbwavali, Software Developer de Angola. Projetos, experiência, software open source e produtos digitais.",
   openGraph: {
-    title: "William Humbwavali — Engenheiro de Software",
+    title: "William Humbwavali — Software Developer",
     description:
-      "Framework open-source, mobilidade urbana, e-commerce e produtos digitais construídos em Angola.",
+      "Projetos, experiência, software open source e produtos digitais construídos por William Humbwavali.",
     type: "website",
   },
 };
@@ -38,8 +39,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-AO" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body className="bg-base font-body text-ink antialiased">{children}</body>
+    <html
+      lang="pt-AO"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
+      <body className="bg-base font-body text-ink antialiased">
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,32 +1,35 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { runCommand, toneClass, OutputLine } from "@/lib/terminal-commands";
 
-type HistoryLine = OutputLine & { kind: "input" | "output" };
-type BootLine = { prompt: boolean; text: string; tone?: OutputLine["tone"] };
+import {
+  runCommand,
+  toneClass,
+  OutputLine,
+} from "@/lib/terminal-commands";
 
-const BOOT_SCRIPT: BootLine[] = [
-  { prompt: true, text: "whoami" },
-  { prompt: false, text: "William Humbwavali", tone: "ink" },
-  {
-    prompt: false,
-    text: "> Full-Stack Software Engineer · Luanda, Angola",
-    tone: "muted",
-  },
-  { prompt: true, text: "cat focus.txt" },
-  {
-    prompt: false,
-    text: "Construo produtos digitais, sistemas e negócios — do zero à produção.",
-    tone: "muted",
-  },
-  { prompt: true, text: "ls ./projects" },
-  {
-    prompt: false,
-    text: "lithe-php/  bando/  baza/  rialse/  bvf/",
-    tone: "cyan",
-  },
-];
+type HistoryLine = OutputLine & {
+  kind: "input" | "output";
+};
+
+type BootLine = {
+  prompt: boolean;
+  text: string;
+  tone?: OutputLine["tone"];
+};
+
+interface InteractiveTerminalProps {
+  onNavigate: (id: string) => void;
+  onClose: () => void;
+  terminal: {
+    closeLabel: string;
+    ariaLabel: string;
+    placeholder: string;
+    quickLabel: string;
+    home: string;
+    bootScript: BootLine[];
+  };
+}
 
 const QUICK_COMMANDS = [
   "help",
@@ -37,33 +40,35 @@ const QUICK_COMMANDS = [
   "contact",
 ];
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
 
 export default function InteractiveTerminal({
   onNavigate,
   onClose,
-}: {
-  onNavigate: (id: string) => void;
-  onClose: () => void;
-}) {
+  terminal,
+}: InteractiveTerminalProps) {
   const [history, setHistory] = useState<HistoryLine[]>([]);
   const [input, setInput] = useState("");
   const [booting, setBooting] = useState(true);
   const [cmdHistory, setCmdHistory] = useState<string[]>([]);
-  const [historyPointer, setHistoryPointer] = useState<number | null>(null);
+  const [historyPointer, setHistoryPointer] = useState<number | null>(
+    null
+  );
 
   const busyRef = useRef(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Boot sequence: types out the intro script line by line, char by char.
   useEffect(() => {
     let cancelled = false;
 
     (async () => {
-      for (const line of BOOT_SCRIPT) {
-        setHistory((h) => [
-          ...h,
+      for (const line of terminal.bootScript) {
+        if (cancelled) return;
+
+        setHistory((current) => [
+          ...current,
           {
             kind: line.prompt ? "input" : "output",
             text: "",
@@ -76,8 +81,8 @@ export default function InteractiveTerminal({
 
           const partial = line.text.slice(0, c);
 
-          setHistory((h) => {
-            const copy = [...h];
+          setHistory((current) => {
+            const copy = [...current];
 
             copy[copy.length - 1] = {
               kind: line.prompt ? "input" : "output",
@@ -94,15 +99,15 @@ export default function InteractiveTerminal({
         await sleep(220);
       }
 
-      if (!cancelled) setBooting(false);
+      if (!cancelled) {
+        setBooting(false);
+      }
     })();
 
     return () => {
       cancelled = true;
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [terminal.bootScript]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
@@ -110,49 +115,54 @@ export default function InteractiveTerminal({
     });
   }, [history, booting]);
 
-  useEffect(() => {
-    if (!booting) inputRef.current?.focus();
-  }, [booting]);
-
   function execute(raw: string) {
     const result = runCommand(raw);
 
-    setHistory((h) => [
-      ...h,
-      { kind: "input", text: raw, tone: "ink" },
-      ...result.lines.map((l) => ({
+    setHistory((current) => [
+      ...current,
+      {
+        kind: "input",
+        text: raw,
+        tone: "ink",
+      },
+      ...result.lines.map((line) => ({
         kind: "output" as const,
-        ...l,
+        ...line,
       })),
     ]);
 
-    if (result.action === "clear") setHistory([]);
+    if (result.action === "clear") {
+      setHistory([]);
+    }
 
-    if (result.navigateTo) onNavigate(result.navigateTo);
+    if (result.navigateTo) {
+      onNavigate(result.navigateTo);
+    }
 
     if (result.action === "close") {
       setTimeout(onClose, 500);
     }
   }
 
-  async function typeCommand(cmd: string) {
+  async function typeCommand(command: string) {
     if (busyRef.current || booting) return;
 
     busyRef.current = true;
     setInput("");
 
-    for (let i = 0; i <= cmd.length; i++) {
-      setInput(cmd.slice(0, i));
+    for (let i = 0; i <= command.length; i++) {
+      setInput(command.slice(0, i));
       await sleep(28);
     }
 
     await sleep(160);
 
-    execute(cmd);
-    setInput("");
+    execute(command);
 
-    setCmdHistory((h) => [...h, cmd]);
+    setInput("");
+    setCmdHistory((current) => [...current, command]);
     setHistoryPointer(null);
+
     busyRef.current = false;
   }
 
@@ -162,7 +172,8 @@ export default function InteractiveTerminal({
     if (!input.trim() || booting) return;
 
     execute(input);
-    setCmdHistory((h) => [...h, input]);
+
+    setCmdHistory((current) => [...current, input]);
     setHistoryPointer(null);
     setInput("");
   }
@@ -180,7 +191,9 @@ export default function InteractiveTerminal({
 
       setHistoryPointer(nextPointer);
       setInput(cmdHistory[nextPointer]);
-    } else if (e.key === "ArrowDown") {
+    }
+
+    if (e.key === "ArrowDown") {
       e.preventDefault();
 
       if (historyPointer === null) return;
@@ -198,11 +211,11 @@ export default function InteractiveTerminal({
   }
 
   return (
-    <div className="rounded-lg border border-line bg-panel overflow-hidden">
-      <div className="flex items-center gap-2 border-b border-line px-4 py-2.5 bg-panelAlt">
+    <div className="overflow-hidden rounded-lg border border-line bg-panel">
+      <div className="flex items-center gap-2 border-b border-line bg-panelAlt px-4 py-2.5">
         <button
           onClick={onClose}
-          aria-label="Fechar terminal"
+          aria-label={terminal.closeLabel}
           className="focus-ring h-2.5 w-2.5 rounded-full bg-red/70 transition-transform hover:scale-125"
         />
 
@@ -211,28 +224,28 @@ export default function InteractiveTerminal({
         <span className="h-2.5 w-2.5 rounded-full bg-green/70" />
 
         <span className="ml-3 font-mono text-xs text-muted">
-          ~/william — zsh
+          {terminal.home}
         </span>
       </div>
 
       <div
         ref={scrollRef}
         onClick={() => inputRef.current?.focus()}
-        className="max-h-[360px] overflow-y-auto p-5 sm:p-6 font-mono text-[13px] leading-relaxed sm:text-sm cursor-text"
+        className="max-h-[360px] cursor-text overflow-y-auto p-5 font-mono text-[13px] leading-relaxed sm:p-6 sm:text-sm"
       >
-        {history.map((line, i) =>
+        {history.map((line, index) =>
           line.kind === "input" ? (
-            <div key={i} className="flex gap-2">
+            <div key={index} className="flex gap-2">
               <span className="shrink-0 text-green">➜</span>
-
               <span className="shrink-0 text-purple">~</span>
-
               <span className="text-ink">{line.text}</span>
             </div>
           ) : (
             <div
-              key={i}
-              className={`whitespace-pre-wrap pl-6 ${toneClass(line.tone)}`}
+              key={index}
+              className={`whitespace-pre-wrap pl-6 ${toneClass(
+                line.tone
+              )}`}
             >
               {line.text}
             </div>
@@ -253,31 +266,33 @@ export default function InteractiveTerminal({
               onKeyDown={handleKeyDown}
               spellCheck={false}
               autoComplete="off"
-              aria-label="Escreve um comando do terminal"
-              placeholder="escreve um comando... (tenta: help)"
+              aria-label={terminal.ariaLabel}
+              placeholder={terminal.placeholder}
               className="w-full bg-transparent text-ink caret-cyan outline-none placeholder:text-mutedDark"
             />
           </form>
         )}
 
         {booting && (
-          <span className="ml-6 animate-blink text-ink">▍</span>
+          <span className="ml-6 animate-blink text-ink">
+            ▍
+          </span>
         )}
       </div>
 
       <div className="flex flex-wrap items-center gap-2 border-t border-line bg-panelAlt px-4 py-3">
         <span className="font-mono text-[11px] text-mutedDark">
-          novo por aqui? experimenta:
+          {terminal.quickLabel}
         </span>
 
-        {QUICK_COMMANDS.map((cmd) => (
+        {QUICK_COMMANDS.map((command) => (
           <button
-            key={cmd}
-            onClick={() => typeCommand(cmd)}
+            key={command}
+            onClick={() => typeCommand(command)}
             disabled={booting}
             className="focus-ring rounded border border-line bg-panel px-2.5 py-1 font-mono text-[11px] text-cyan transition-colors hover:border-cyan/40 hover:bg-cyan/10 disabled:opacity-40"
           >
-            {cmd}
+            {command}
           </button>
         ))}
       </div>
