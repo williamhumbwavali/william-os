@@ -12,6 +12,7 @@ import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
+import WindowManager from "./WindowManager";
 
 const SECTION_IDS = [
     "about",
@@ -49,7 +50,6 @@ export default function Home({ data }: HomeProps) {
     const [booted, setBooted] = useState(false);
     const [activeId, setActiveId] = useState("about");
     const [terminalOpen, setTerminalOpen] = useState(true);
-
     const observing = useRef(false);
 
     useEffect(() => {
@@ -107,67 +107,77 @@ export default function Home({ data }: HomeProps) {
 
     return (
         <>
-            {!booted && <BootScreen
-                bootLog={data.bootLog}
-                onDone={() => setBooted(true)}
-            />}
-
-            <div className="flex min-h-screen">
-                <Sidebar
-                    activeId={activeId}
-                    onNavigate={handleNavigate}
-                    files={data.files}
-                    extColor={data.extColor}
+            {!booted && (
+                <BootScreen
+                    bootLog={data.bootLog}
+                    onDone={() => setBooted(true)}
                 />
+            )}
 
-                <div className="min-w-0 flex-1">
-                    <TabBar
+            <div className="min-h-screen bg-white text-neutral-950">
+                <div className="flex min-h-screen">
+                    <Sidebar
                         activeId={activeId}
                         onNavigate={handleNavigate}
-                        terminalOpen={terminalOpen}
-                        onToggleTerminal={handleToggleTerminal}
-                        ui={data.ui}
                         files={data.files}
                         extColor={data.extColor}
                     />
 
-                    <main>
-                        <Hero
-                            data={data.site}
-                            terminal={data.terminal}
+                    <div className="min-w-0 flex-1">
+                        <TabBar
+                            activeId={activeId}
                             onNavigate={handleNavigate}
                             terminalOpen={terminalOpen}
-                            onOpenTerminal={() => setTerminalOpen(true)}
-                            onCloseTerminal={() => setTerminalOpen(false)}
+                            onToggleTerminal={handleToggleTerminal}
+                            ui={data.ui}
+                            files={data.files}
+                            extColor={data.extColor}
                         />
 
-                        <About about={data.about} />
-
-                        <Experience
-                            experienceSection={data.experienceSection}
-                            experience={data.experience}
-                        />
-
-                        {data.projects.map((project, i) => (
-                            <ProjectSection
-                                key={project.id}
-                                project={project}
-                                index={i + 1}
+                        <main>
+                            <Hero
+                                data={data.site}
+                                terminal={data.terminal}
+                                onNavigate={handleNavigate}
+                                terminalOpen={terminalOpen}
+                                onOpenTerminal={() =>
+                                    setTerminalOpen(true)
+                                }
+                                onCloseTerminal={() =>
+                                    setTerminalOpen(false)
+                                }
                             />
-                        ))}
 
-                        <Skills
-                            section={data.skillsSection}
-                            skills={data.skills}
-                        />
+                            <About about={data.about} />
 
-                        <Education
-                            education={data.education}
-                            timeline={data.timeline}
-                        />
+                            <Experience
+                                experienceSection={
+                                    data.experienceSection
+                                }
+                                experience={data.experience}
+                            />
 
-                        <Contact contact={data.contact} />
-                    </main>
+                            {data.projects.map((project, i) => (
+                                <ProjectSection
+                                    key={project.id}
+                                    project={project}
+                                    index={i + 1}
+                                />
+                            ))}
+
+                            <Skills
+                                section={data.skillsSection}
+                                skills={data.skills}
+                            />
+
+                            <Education
+                                education={data.education}
+                                timeline={data.timeline}
+                            />
+
+                            <Contact contact={data.contact} />
+                        </main>
+                    </div>
                 </div>
             </div>
         </>

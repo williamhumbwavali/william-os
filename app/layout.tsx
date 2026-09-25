@@ -43,7 +43,7 @@ export default function RootLayout({
       lang="pt-AO"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
-      <body className="bg-base font-body text-ink antialiased">
+      <body className="bg-base font-body text-black antialiased">
         {children}
       </body>
     </html>

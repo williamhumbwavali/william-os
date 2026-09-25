@@ -99,11 +99,10 @@ export const site = {
   name: "William Humbwavali",
   role: "Software Developer",
 
-  headline: "Construo software, ferramentas e plataformas.",
+  headline: "Crio software, ferramentas e plataformas.",
 
   description:
-    "Sou William Humbwavali, Software Developer de Angola, focado em construir aplicações web modernas com React, Next.js, React Native e NestJS. Já liderei desenvolvimento aos 19 anos, construí produtos próprios e criei software open source. Aqui podes explorar o meu trabalho, projetos e experiência através do terminal.",
-
+    "Sou William Humbwavali, Software Developer de Angola, com experiência na construção de aplicações web, mobile, ferramentas e software open source. Trabalho principalmente com PHP e JavaScript/TypeScript, utilizando tecnologias como React, Next.js, React Native e NestJS. Já liderei desenvolvimento aos 19 anos e construí produtos próprios. Aqui podes explorar o meu trabalho, projetos e experiência através do terminal.",
   sessionStarted: "software.developer — sessão iniciada",
 
   terminalClosed: "terminal.app — fechado. clica para abrir.",
@@ -400,7 +399,7 @@ export const experience = [
     location: "Angola",
     description:
       "Aos 19 anos, assumi a liderança do desenvolvimento de uma startup de mobilidade urbana focada em estudantes. Coordenei a equipe de desenvolvimento, participei da definição do roadmap e das decisões de arquitetura, segurança e performance, além de desenvolver funcionalidades como rastreamento em tempo real e agendamento.",
-    stack: ["Laravel", "PHP", "Vue.js", "Inertia.js"],
+    stack: ["Laravel", "PHP", "Vue.js", "Inertia.js", "NestJS", "React Native", "Next.JS"],
   },
   {
     period: "Freelance",
@@ -456,7 +455,7 @@ export const ui = {
 };
 
 export const bootLog = [
-  "a carregar whOS v1.0...",
+  "a carregar whEnv v1.1...",
   "a montar /about",
   "a montar /projects (lithe-php, bando, baza, rialse, bvf)",
   "a iniciar terminal interativo...",
@@ -558,7 +557,6 @@ export const skills = {
     "Arquitetura de software",
     "APIs",
     "Sistemas distribuídos",
-    "Estruturas de dados",
   ],
 
   devops: [
@@ -573,7 +571,6 @@ export const skills = {
     "Google Ads",
     "Google Analytics",
     "Social Media",
-    "Estratégia de conteúdo",
   ],
 };
 

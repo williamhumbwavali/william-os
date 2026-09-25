@@ -129,7 +129,7 @@ function AppContent({
             {id}.app
           </span>
 
-          <h1 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">
+          <h1 className="mt-3 font-display text-3xl font-semibold text-black sm:text-4xl">
             {name}
           </h1>
         </div>

@@ -14,6 +14,7 @@ export default function BootScreen({
   const [progress, setProgress] = useState(0);
   const [logIndex, setLogIndex] = useState(0);
   const [fading, setFading] = useState(false);
+
   const reduced = useRef(false);
 
   useEffect(() => {
@@ -38,11 +39,15 @@ export default function BootScreen({
     const interval = setInterval(() => {
       setProgress((current) => {
         const next = Math.min(100, current + step);
+
         return next;
       });
 
       setLogIndex((current) =>
-        Math.min(bootLog.length - 1, current + 1)
+        Math.min(
+          bootLog.length - 1,
+          current + 1
+        )
       );
     }, 260);
 
@@ -68,26 +73,28 @@ export default function BootScreen({
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-base transition-opacity duration-300 ${
+      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-opacity duration-300 ${
         fading
           ? "pointer-events-none opacity-0"
           : "opacity-100"
       }`}
       aria-hidden="true"
     >
-      <div className="w-72 font-mono text-xs text-muted sm:w-80">
-        <div className="mb-6 flex items-center gap-2 text-ink">
+      <div className="w-72 font-mono text-xs text-neutral-500 sm:w-80">
+        <div className="mb-6 flex items-center gap-2 text-neutral-950">
           <span className="text-cyan">■</span>
 
           <span className="text-base font-semibold tracking-wide">
-            whOS
+            whEnv
           </span>
         </div>
 
-        <div className="mb-4 h-1.5 w-full overflow-hidden rounded-full bg-line">
+        <div className="mb-4 h-1.5 w-full overflow-hidden rounded-full bg-neutral-200">
           <div
             className="h-full rounded-full bg-cyan transition-[width] duration-200 ease-out"
-            style={{ width: `${progress}%` }}
+            style={{
+              width: `${progress}%`,
+            }}
           />
         </div>
 
@@ -99,7 +106,10 @@ export default function BootScreen({
                 key={index}
                 className="flex items-center gap-2"
               >
-                <span className="text-green">✓</span>
+                <span className="text-green">
+                  ✓
+                </span>
+
                 <span>{line}</span>
               </div>
             ))}

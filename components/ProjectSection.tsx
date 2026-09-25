@@ -1,10 +1,33 @@
 import { Project } from "@/lib/data";
 
-const accentMap: Record<Project["accent"], { text: string; border: string; bg: string }> = {
-  cyan: { text: "text-cyan", border: "border-cyan/30", bg: "bg-cyan/10" },
-  purple: { text: "text-purple", border: "border-purple/30", bg: "bg-purple/10" },
-  amber: { text: "text-amber", border: "border-amber/30", bg: "bg-amber/10" },
-  green: { text: "text-green", border: "border-green/30", bg: "bg-green/10" },
+const accentMap: Record<
+  Project["accent"],
+  {
+    text: string;
+    border: string;
+    bg: string;
+  }
+> = {
+  cyan: {
+    text: "text-cyan",
+    border: "border-cyan/30",
+    bg: "bg-white",
+  },
+  purple: {
+    text: "text-purple",
+    border: "border-purple/30",
+    bg: "bg-white",
+  },
+  amber: {
+    text: "text-amber",
+    border: "border-amber/30",
+    bg: "bg-white",
+  },
+  green: {
+    text: "text-green",
+    border: "border-green/30",
+    bg: "bg-white",
+  },
 };
 
 export default function ProjectSection({
@@ -20,24 +43,42 @@ export default function ProjectSection({
   return (
     <section
       id={project.fileId}
-      className="scroll-mt-16 border-b border-line px-5 py-16 sm:px-10 lg:px-16"
+      className="relative scroll-mt-16 overflow-hidden border-b border-black/10 bg-dots px-5 py-16 sm:px-10 lg:px-16"
     >
-      <div className="mx-auto max-w-5xl">
-        <p className={`mb-2 font-mono text-xs uppercase tracking-[0.2em] ${accent.text}`}>
-          projects/{project.id === "lithe" ? "lithe-php" : project.id === "bvf" ? "bvf" : project.id}
-          /
-        </p>
-        <div className="mb-8 flex items-baseline gap-3">
-          <span className={`font-mono text-sm ${accent.text}`}>{num}</span>
-          <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+      <div className="relative mx-auto max-w-5xl">
+        <div className="mb-8 flex items-center gap-3">
+          <p
+            className={`font-mono text-xs uppercase tracking-[0.2em] ${accent.text}`}
+          >
+            projects/
+            {project.id === "lithe"
+              ? "lithe-php"
+              : project.id === "bvf"
+                ? "bvf"
+                : project.id}
+            /
+          </p>
+
+          <span className="h-px flex-1 bg-black/10" />
+
+          <span
+            className={`font-mono text-sm ${accent.text}`}
+          >
+            {num}
+          </span>
+        </div>
+
+        <div className="mb-8">
+          <h2 className="font-display text-3xl font-semibold text-black sm:text-4xl">
             {project.name}
           </h2>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-5">
+          {/* Cover */}
           <div className="lg:col-span-3">
             <div
-              className={`overflow-hidden rounded-lg border ${accent.border} bg-panel`}
+              className={`overflow-hidden rounded-lg border ${accent.border} bg-white shadow-sm`}
             >
               <img
                 src={project.cover}
@@ -47,37 +88,53 @@ export default function ProjectSection({
             </div>
           </div>
 
+          {/* Content */}
           <div className="lg:col-span-2">
-            <p className={`mb-3 font-mono text-sm ${accent.text}`}>{project.tagline}</p>
+            <p
+              className={`mb-3 font-mono text-sm ${accent.text}`}
+            >
+              {project.tagline}
+            </p>
+
             <p className="mb-6 text-[15px] leading-relaxed text-muted">
               {project.description}
             </p>
 
+            {/* Stats */}
             {project.stats && (
               <div className="mb-6 grid grid-cols-2 gap-3">
                 {project.stats.map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-md border border-line bg-panelAlt px-3 py-2.5"
+                    className={`rounded-md border ${accent.border} ${accent.bg} px-3 py-2.5`}
                   >
-                    <div className="font-mono text-base text-ink">{s.value}</div>
-                    <div className="font-mono text-[11px] text-mutedDark">{s.label}</div>
+                    <div
+                      className={`font-mono text-base text-gray-700`}
+                    >
+                      {s.value}
+                    </div>
+
+                    <div className="font-mono text-[11px] text-mutedDark">
+                      {s.label}
+                    </div>
                   </div>
                 ))}
               </div>
             )}
 
+            {/* Stack */}
             <div className="mb-6 flex flex-wrap gap-2">
               {project.stack.map((s) => (
                 <span
                   key={s}
-                  className="rounded border border-line bg-panelAlt px-2.5 py-1 font-mono text-[11px] text-muted"
+                  className="rounded border border-black/10 bg-white px-2.5 py-1 font-mono text-[11px] text-muted"
                 >
                   {s}
                 </span>
               ))}
             </div>
 
+            {/* Links */}
             {project.links.length > 0 && (
               <div className="flex flex-wrap gap-3">
                 {project.links.map((l) => (

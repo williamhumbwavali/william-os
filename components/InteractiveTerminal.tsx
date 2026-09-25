@@ -160,6 +160,7 @@ export default function InteractiveTerminal({
     execute(command);
 
     setInput("");
+
     setCmdHistory((current) => [...current, command]);
     setHistoryPointer(null);
 
@@ -178,7 +179,9 @@ export default function InteractiveTerminal({
     setInput("");
   }
 
-  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+  function handleKeyDown(
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) {
     if (e.key === "ArrowUp") {
       e.preventDefault();
 
@@ -211,34 +214,44 @@ export default function InteractiveTerminal({
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-line bg-panel">
-      <div className="flex items-center gap-2 border-b border-line bg-panelAlt px-4 py-2.5">
+    <div className="overflow-hidden rounded-lg border border-black/10 bg-white shadow-sm">
+      {/* Window header */}
+      <div className="flex items-center gap-2 border-b border-black/10 bg-neutral-50 px-4 py-2.5">
         <button
           onClick={onClose}
           aria-label={terminal.closeLabel}
-          className="focus-ring h-2.5 w-2.5 rounded-full bg-red/70 transition-transform hover:scale-125"
+          className="focus-ring h-2.5 w-2.5 rounded-full bg-red transition-transform hover:scale-125"
         />
 
-        <span className="h-2.5 w-2.5 rounded-full bg-amber/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-amber" />
 
-        <span className="h-2.5 w-2.5 rounded-full bg-green/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-green" />
 
         <span className="ml-3 font-mono text-xs text-muted">
           {terminal.home}
         </span>
       </div>
 
+      {/* Terminal body */}
       <div
         ref={scrollRef}
         onClick={() => inputRef.current?.focus()}
-        className="max-h-[360px] cursor-text overflow-y-auto p-5 font-mono text-[13px] leading-relaxed sm:p-6 sm:text-sm"
+        className="max-h-[360px] cursor-text overflow-y-auto bg-white p-5 font-mono text-[13px] leading-relaxed sm:p-6 sm:text-sm"
       >
         {history.map((line, index) =>
           line.kind === "input" ? (
             <div key={index} className="flex gap-2">
-              <span className="shrink-0 text-green">➜</span>
-              <span className="shrink-0 text-purple">~</span>
-              <span className="text-ink">{line.text}</span>
+              <span className="shrink-0 text-green">
+                ➜
+              </span>
+
+              <span className="shrink-0 text-purple">
+                ~
+              </span>
+
+              <span className="text-gray-300">
+                {line.text}
+              </span>
             </div>
           ) : (
             <div
@@ -253,10 +266,17 @@ export default function InteractiveTerminal({
         )}
 
         {!booting && (
-          <form onSubmit={handleSubmit} className="mt-1 flex gap-2">
-            <span className="shrink-0 text-green">➜</span>
+          <form
+            onSubmit={handleSubmit}
+            className="mt-1 flex gap-2"
+          >
+            <span className="shrink-0 text-green">
+              ➜
+            </span>
 
-            <span className="shrink-0 text-purple">~</span>
+            <span className="shrink-0 text-purple">
+              ~
+            </span>
 
             <input
               ref={inputRef}
@@ -268,19 +288,20 @@ export default function InteractiveTerminal({
               autoComplete="off"
               aria-label={terminal.ariaLabel}
               placeholder={terminal.placeholder}
-              className="w-full bg-transparent text-ink caret-cyan outline-none placeholder:text-mutedDark"
+              className="w-full bg-transparent text-gray-300 caret-cyan outline-none placeholder:text-mutedDark"
             />
           </form>
         )}
 
         {booting && (
-          <span className="ml-6 animate-blink text-ink">
+          <span className="ml-6 animate-blink text-gray-300">
             ▍
           </span>
         )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 border-t border-line bg-panelAlt px-4 py-3">
+      {/* Quick commands */}
+      <div className="flex flex-wrap items-center gap-2 border-t border-black/10 bg-neutral-50 px-4 py-3">
         <span className="font-mono text-[11px] text-mutedDark">
           {terminal.quickLabel}
         </span>
@@ -290,7 +311,7 @@ export default function InteractiveTerminal({
             key={command}
             onClick={() => typeCommand(command)}
             disabled={booting}
-            className="focus-ring rounded border border-line bg-panel px-2.5 py-1 font-mono text-[11px] text-cyan transition-colors hover:border-cyan/40 hover:bg-cyan/10 disabled:opacity-40"
+            className="focus-ring rounded border border-black/10 bg-white px-2.5 py-1 font-mono text-[11px] text-cyan transition-colors hover:border-cyan/40 hover:bg-cyan/10 disabled:opacity-40"
           >
             {command}
           </button>

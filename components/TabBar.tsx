@@ -7,7 +7,6 @@ interface TabBarProps {
   onNavigate: (id: string) => void;
   terminalOpen: boolean;
   onToggleTerminal: () => void;
-
   ui: {
     locale: "pt-PT" | "en-US";
     terminal: string;
@@ -15,13 +14,11 @@ interface TabBarProps {
     closeTerminal: string;
     language: string;
   };
-
   files: {
     id: string;
     label: string;
     ext: string;
   }[];
-
   extColor: Record<string, string>;
 }
 
@@ -58,35 +55,54 @@ export default function TabBar({
 
     localStorage.setItem("locale", newLocale);
 
-    window.location.href = newLocale === "en-US" ? "/en" : "/";
+    window.location.href =
+      newLocale === "en-US" ? "/en" : "/";
+  };
+
+  const fallbackColors: Record<string, string> = {
+    ts: "text-blue-500",
+    tsx: "text-cyan-500",
+    js: "text-yellow-500",
+    jsx: "text-yellow-500",
+    php: "text-purple-500",
+    json: "text-amber-500",
+    md: "text-green-500",
+    css: "text-pink-500",
+    html: "text-orange-500",
+    sql: "text-indigo-500",
+    py: "text-blue-600",
   };
 
   return (
-    <div className="sticky top-0 z-30 border-b border-line bg-base/90 backdrop-blur">
+    <div className="sticky top-0 z-30 border-b border-black/10 bg-white/90 backdrop-blur-xl">
       <div className="flex items-center">
         {/* Tabs */}
         <div className="flex flex-1 items-center overflow-x-auto no-scrollbar">
           {/* whOS */}
-          <div className="flex shrink-0 items-center gap-2 border-r border-line px-4 py-3 font-mono text-xs text-muted">
+          <div className="flex shrink-0 items-center gap-2 border-r border-black/10 px-4 py-3 font-mono text-xs text-muted">
             <span className="h-2 w-2 rounded-full bg-cyan" />
-            whOS
+            whEnv
           </div>
 
           {/* Files */}
           {files.map((file) => {
             const active = activeId === file.id;
 
+            const color =
+              extColor[file.ext] ??
+              fallbackColors[file.ext] ??
+              "text-neutral-400";
+
             return (
               <button
                 key={file.id}
                 onClick={() => onNavigate(file.id)}
-                className={`focus-ring flex shrink-0 items-center gap-2 border-r border-line px-4 py-3 font-mono text-xs transition-colors ${
-                  active
-                    ? "bg-panel text-ink"
-                    : "text-muted hover:bg-panelAlt hover:text-ink"
-                }`}
+                className={`focus-ring flex shrink-0 items-center gap-2 border-r border-black/10 px-4 py-3 font-mono text-xs transition-colors ${active
+                    ? "bg-neutral-100 text-neutral-950"
+                    : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-950"
+                  }`}
               >
-                <span className={extColor[file.ext]}>●</span>
+                <span className={color}>●</span>
 
                 {file.label}
               </button>
@@ -99,13 +115,14 @@ export default function TabBar({
           onClick={onToggleTerminal}
           aria-pressed={terminalOpen}
           title={
-            terminalOpen ? ui.closeTerminal : ui.openTerminal
-          }
-          className={`focus-ring flex shrink-0 items-center gap-2 border-l border-line px-4 py-3 font-mono text-xs transition-colors ${
             terminalOpen
-              ? "text-cyan"
-              : "text-muted hover:text-ink"
-          }`}
+              ? ui.closeTerminal
+              : ui.openTerminal
+          }
+          className={`focus-ring flex shrink-0 items-center gap-2 border-l border-black/10 px-4 py-3 font-mono text-xs transition-colors ${terminalOpen
+              ? "text-cyan-600"
+              : "text-neutral-500 hover:text-neutral-950"
+            }`}
         >
           <span>&gt;_</span>
 
@@ -115,44 +132,51 @@ export default function TabBar({
         </button>
 
         {/* Language + Time */}
-        <div className="hidden shrink-0 items-center gap-3 border-l border-line px-4 py-2.5 sm:flex">
+        <div className="hidden shrink-0 items-center gap-3 border-l border-black/10 px-4 py-2.5 sm:flex">
+          {/* Language */}
           <div className="relative">
             <select
               value={ui.locale}
               onChange={(event) =>
                 changeLocale(
-                  event.target.value as "pt-PT" | "en-US"
+                  event.target.value as
+                  | "pt-PT"
+                  | "en-US"
                 )
               }
               aria-label={ui.language}
               className="
-                appearance-none
                 cursor-pointer
+                appearance-none
                 rounded-md
                 border
-                border-white/10
-                bg-white/5
+                border-black/10
+                bg-neutral-100
                 py-1.5
                 pl-2.5
                 pr-7
                 font-mono
                 text-[11px]
-                text-muted
+                text-neutral-600
                 outline-none
-                backdrop-blur-md
                 transition
-                hover:bg-white/10
-                focus:border-white/20
-                focus:bg-white/10
+                hover:bg-neutral-200
+                focus:border-black/20
+                focus:bg-neutral-100
               "
             >
-              <option value="pt-PT">PT</option>
-              <option value="en-US">EN</option>
+              <option value="pt-PT">
+                PT
+              </option>
+
+              <option value="en-US">
+                EN
+              </option>
             </select>
 
             {/* Chevron */}
             <svg
-              className="pointer-events-none absolute right-2 top-1/2 h-3 w-3 -translate-y-1/2 text-muted"
+              className="pointer-events-none absolute right-2 top-1/2 h-3 w-3 -translate-y-1/2 text-neutral-400"
               viewBox="0 0 12 12"
               fill="none"
               aria-hidden="true"
@@ -168,7 +192,7 @@ export default function TabBar({
           </div>
 
           {/* Clock */}
-          <span className="font-mono text-xs text-muted">
+          <span className="font-mono text-xs text-neutral-500">
             {time}
           </span>
         </div>

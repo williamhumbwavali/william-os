@@ -102,8 +102,7 @@ export const site = {
   headline: "I build software, tools, and platforms.",
 
   description:
-    "I'm William Humbwavali, a Software Developer from Angola, focused on building modern web applications with React, Next.js, React Native, and NestJS. I've led development at 19, built my own products, and created open-source software. Here you can explore my work, projects, and experience through the terminal.",
-
+    "I'm William Humbwavali, a Software Developer from Angola with experience building web and mobile applications, tools, and open-source software. I primarily work with PHP and JavaScript/TypeScript, using technologies such as React, Next.js, React Native, and NestJS. I've led development at 19 and built products of my own. Here you can explore my work, projects, and experience through the terminal.",
   sessionStarted: "software.developer — session started",
 
   terminalClosed: "terminal.app — closed. click to open.",
@@ -404,17 +403,16 @@ export const skills = {
   ],
 
   engenharia: [
-    "Arquitetura de software",
+    "Software architecture",
     "APIs",
-    "Sistemas distribuídos",
-    "Estruturas de dados",
+    "Distributed systems",
   ],
 
   devops: [
     "CI/CD",
     "Docker Compose",
     "Deploy",
-    "Monitoramento",
+    "Monitoring",
   ],
 
   marketingDigital: [
@@ -422,7 +420,6 @@ export const skills = {
     "Google Ads",
     "Google Analytics",
     "Social Media",
-    "Estratégia de conteúdo",
   ],
 };
 
@@ -485,7 +482,7 @@ export const experience = [
     location: "Angola",
     description:
       "At 19, I took on development leadership at an urban mobility startup focused on students. I coordinated the development team, contributed to roadmap and architecture decisions, and worked on security and performance, as well as features such as real-time tracking and scheduling.",
-    stack: ["Laravel", "PHP", "Vue.js", "Inertia.js"],
+    stack: ["Laravel", "PHP", "Vue.js", "Inertia.js", "NestJS", "React Native", "Next.JS"],
   },
   {
     period: "Freelance",
@@ -546,7 +543,7 @@ export const ui = {
 };
 
 export const bootLog = [
-  "loading whOS v1.0...",
+  "loading whEnv v1.1...",
   "mounting /about",
   "mounting /projects (lithe-php, bando, baza, rialse, bvf)",
   "starting interactive terminal...",

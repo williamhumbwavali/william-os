@@ -108,7 +108,7 @@ export default function AppWindow({
                 hover:scale-110
               "
             >
-              <span className="text-[7px] font-bold text-black/60 opacity-0">
+              <span className="text-[7px] font-bold text-cyan/60 opacity-0">
                 ×
               </span>
             </button>
@@ -134,7 +134,7 @@ export default function AppWindow({
               <Minus
                 size={7}
                 strokeWidth={3}
-                className="text-black/60 opacity-0 "
+                className="text-cyan/60 opacity-0 "
               />
             </button>
 
@@ -158,7 +158,7 @@ export default function AppWindow({
               <Maximize2
                 size={6}
                 strokeWidth={3}
-                className="text-black/60 opacity-0"
+                className="text-cyan/60 opacity-0"
               />
             </button>
           </div>
