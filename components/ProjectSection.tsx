@@ -91,7 +91,7 @@ export default function ProjectSection({
           {/* Content */}
           <div className="lg:col-span-2">
             <p
-              className={`mb-3 font-mono text-sm ${accent.text}`}
+              className={`mb-3 text-sm ${accent.text}`}
             >
               {project.tagline}
             </p>
@@ -109,7 +109,7 @@ export default function ProjectSection({
                     className={`rounded-md border ${accent.border} ${accent.bg} px-3 py-2.5`}
                   >
                     <div
-                      className={`font-mono text-base text-gray-700`}
+                      className={`text-base text-gray-700`}
                     >
                       {s.value}
                     </div>
