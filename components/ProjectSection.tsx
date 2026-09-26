@@ -28,6 +28,11 @@ const accentMap: Record<
     border: "border-green/30",
     bg: "bg-white",
   },
+  black: {
+    text: "text-black",
+    border: "border-black/10",
+    bg: "bg-white",
+  },
 };
 
 export default function ProjectSection({

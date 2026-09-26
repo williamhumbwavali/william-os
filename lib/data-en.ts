@@ -102,7 +102,7 @@ export const site = {
   headline: "Building software that becomes something more.",
 
   description:
-    "I'm William Humbwavali, a Software Developer from Angola with experience building web and mobile applications, tools, and open-source software. I primarily work with PHP and JavaScript/TypeScript, using technologies such as React, Next.js, React Native, and NestJS. I've led development at 19 and built products of my own. Here you can explore my work, projects, and experience through the terminal.",
+    "I'm William Humbwavali, a software developer from Angola. I build software, products, and tools for web and mobile. Explore my work, projects, and experience via the terminal.",
   sessionStarted: "software.developer — session started",
 
   terminalClosed: "terminal.app — closed. click to open.",
