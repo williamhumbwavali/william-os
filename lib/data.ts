@@ -99,7 +99,7 @@ export const site = {
   name: "William Humbwavali",
   role: "Software Developer",
 
-  headline: "William Humbwavali",
+  headline: "Criar software que se torna algo mais.",
 
   description:
     "Sou William Humbwavali, Software Developer de Angola, com experiência na construção de aplicações web, mobile, ferramentas e software open source. Trabalho principalmente com PHP e JavaScript/TypeScript, utilizando tecnologias como React, Next.js, React Native e NestJS. Já liderei desenvolvimento aos 19 anos e construí produtos próprios. Aqui podes explorar o meu trabalho, projetos e experiência através do terminal.",
@@ -322,7 +322,7 @@ export const projects: Project[] = [
       },
     ],
     cover: "/projects/bando-studio.png",
-    accent: "cyan",
+    accent: "amber",
   },
 
   {
@@ -357,7 +357,7 @@ export const projects: Project[] = [
     ],
     links: [],
     cover: "/projects/rialse.png",
-    accent: "amber",
+    accent: "cyan",
   },
 ];
 
