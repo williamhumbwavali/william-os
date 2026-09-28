@@ -49,6 +49,18 @@ export const files: NavFile[] = [
     ext: "php",
   },
   {
+    id: "oplayer",
+    label: "player.tsx",
+    path: "projects/oplayer/",
+    ext: "ts",
+  },
+  {
+    id: "lithechat",
+    label: "chat.php",
+    path: "projects/lithechat/",
+    ext: "php",
+  },
+  {
     id: "skills",
     label: "stack.json",
     path: "skills/",
@@ -317,7 +329,7 @@ export const projects: Project[] = [
       },
     ],
     cover: "/projects/bando-studio.png",
-    accent: "cyan",
+    accent: "amber",
   },
 
   {
@@ -352,7 +364,92 @@ export const projects: Project[] = [
     ],
     links: [],
     cover: "/projects/rialse.png",
-    accent: "amber",
+    accent: "cyan",
+  },
+  {
+    id: "oplayer",
+    fileId: "oplayer",
+    name: "OPlayer",
+    tagline: "Offline music player for your personal library",
+    description:
+      "A mobile music player focused on local and offline playback. OPlayer lets users import music from their device, manage a personal library, and play tracks through a modern interface without streaming, accounts, or ads.",
+    stack: [
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "TypeScript",
+      "NativeWind",
+      "Zustand",
+      "Expo Audio",
+    ],
+    stats: [
+      {
+        label: "Type",
+        value: "Music Player",
+      },
+      {
+        label: "Platform",
+        value: "Mobile",
+      },
+      {
+        label: "Architecture",
+        value: "Local-first",
+      },
+    ],
+    links: [
+      {
+        label: "GitHub →",
+        href: "https://github.com/williamhumbwavali/offline-player",
+      },
+    ],
+    cover: "/projects/oplayer.png",
+    accent: "cyan",
+  },
+  {
+    id: "lithechat",
+    fileId: "lithechat",
+    name: "LitheChat",
+    tagline: "Real-time private messaging platform",
+    description:
+      "A real-time private messaging platform built around the Lithe ecosystem. The project combines a Next.js frontend with an HTTP API powered by LithePHP and a Workerman-based WebSocket server, using Redis Pub/Sub for event distribution and MySQL for persisting users, conversations, and messages.",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PHP",
+      "LithePHP",
+      "MySQL",
+      "Redis",
+      "WebSocket",
+      "Workerman",
+    ],
+    stats: [
+      {
+        label: "Type",
+        value: "Real-time Chat",
+      },
+      {
+        label: "Architecture",
+        value: "Full Stack",
+      },
+      {
+        label: "Communication",
+        value: "REST + WebSocket",
+      },
+    ],
+    links: [
+      {
+        label: "Frontend →",
+        href: "https://github.com/williamhumbwavali/lithechat-frontend",
+      },
+      {
+        label: "Backend →",
+        href: "https://github.com/williamhumbwavali/lithechat-backend",
+      },
+    ],
+    cover: "/projects/lithechat.png",
+    accent: "purple",
   },
 ];
 

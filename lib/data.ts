@@ -49,6 +49,18 @@ export const files: NavFile[] = [
     ext: "php",
   },
   {
+    id: "oplayer",
+    label: "player.tsx",
+    path: "projects/oplayer/",
+    ext: "ts",
+  },
+  {
+    id: "lithechat",
+    label: "chat.php",
+    path: "projects/lithechat/",
+    ext: "php",
+  },
+  {
     id: "skills",
     label: "stack.json",
     path: "skills/",
@@ -358,6 +370,91 @@ export const projects: Project[] = [
     links: [],
     cover: "/projects/rialse.png",
     accent: "cyan",
+  },
+  {
+    id: "oplayer",
+    fileId: "oplayer",
+    name: "OPlayer",
+    tagline: "Player de música offline para a tua biblioteca",
+    description:
+      "Um player de música mobile focado em reprodução local e offline. O OPlayer permite importar músicas do dispositivo, gerir uma biblioteca pessoal e reproduzir faixas através de uma interface moderna, sem streaming, contas ou anúncios.",
+    stack: [
+      "React Native",
+      "Expo",
+      "Expo Router",
+      "TypeScript",
+      "NativeWind",
+      "Zustand",
+      "Expo Audio",
+    ],
+    stats: [
+      {
+        label: "Tipo",
+        value: "Music Player",
+      },
+      {
+        label: "Plataforma",
+        value: "Mobile",
+      },
+      {
+        label: "Arquitetura",
+        value: "Local-first",
+      },
+    ],
+    links: [
+      {
+        label: "GitHub →",
+        href: "https://github.com/williamhumbwavali/offline-player",
+      },
+    ],
+    cover: "/projects/oplayer.png",
+    accent: "cyan",
+  },
+  {
+    id: "lithechat",
+    fileId: "lithechat",
+    name: "LitheChat",
+    tagline: "Plataforma de mensagens privadas em tempo real",
+    description:
+      "Uma plataforma de mensagens privadas em tempo real construída sobre o ecossistema Lithe. O projeto combina um frontend em Next.js com uma API HTTP em LithePHP e um servidor WebSocket baseado em Workerman, utilizando Redis Pub/Sub para distribuição de eventos e MySQL para persistência de utilizadores, conversas e mensagens.",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PHP",
+      "LithePHP",
+      "MySQL",
+      "Redis",
+      "WebSocket",
+      "Workerman",
+    ],
+    stats: [
+      {
+        label: "Tipo",
+        value: "Real-time Chat",
+      },
+      {
+        label: "Arquitetura",
+        value: "Full Stack",
+      },
+      {
+        label: "Comunicação",
+        value: "REST + WebSocket",
+      },
+    ],
+    links: [
+      {
+        label: "Frontend →",
+        href: "https://github.com/williamhumbwavali/lithechat-frontend",
+      },
+      {
+        label: "Backend →",
+        href: "https://github.com/williamhumbwavali/lithechat-backend",
+      },
+    ],
+    cover: "/projects/lithechat.png",
+    accent: "purple",
   },
 ];
 

@@ -67,6 +67,8 @@ export default function Sidebar({
           "lithe",
           "bando",
           "rialse",
+          "oplayer",
+          "lithechat"
         ],
       },
       {

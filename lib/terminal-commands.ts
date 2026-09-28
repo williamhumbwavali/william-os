@@ -37,6 +37,8 @@ const aliases: Record<string, string> = {
   baza: "baza",
 
   rialse: "rialse",
+  oplayer: "oplayer",
+  lithechat: "lithechat",
 
   bvf: "bvf",
   bvfa: "bvf",
@@ -124,7 +126,7 @@ const HELP_LINES: OutputLine[] = [
   },
   {
     text:
-      'dica: open bando | open lithe | open baza | open bvf | open rialse',
+      'dica: open bando | open lithe | open baza | open bvf | open rialse | open oplayer | open lithechat',
     tone: "cyan",
   },
 ];
@@ -145,6 +147,10 @@ function projectPath(id: string) {
 
     case "rialse":
       return "rialse";
+    case "oplayer":
+      return "oplayer";
+    case "lithechat":
+      return "lithechat";
 
     default:
       return id;
@@ -338,7 +344,7 @@ export function runCommand(raw: string): CommandResult {
             },
             {
               text:
-                "tenta: open bando | open lithe | open baza | open rialse | open bvf | open experience",
+                "tenta: open bando | open lithe | open baza | open rialse | open bvf | open oplayer | open lithechat | open experience",
               tone: "muted",
             },
           ],

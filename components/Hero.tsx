@@ -41,7 +41,7 @@ export function highlightDescription(text: string) {
     },
     {
       value: "Software Developer",
-      className: "text-cyan",
+      className: "text-black",
     },
     {
       value: "software open source",
@@ -49,7 +49,7 @@ export function highlightDescription(text: string) {
     },
     {
       value: "Bando CMS",
-      className: "text-cyan",
+      className: "text-black",
     },
     {
       value: "Next.js",
@@ -61,7 +61,7 @@ export function highlightDescription(text: string) {
     },
     {
       value: "Njila",
-      className: "text-rose-600",
+      className: "text-black",
     },
     {
       value: "React",
@@ -69,7 +69,7 @@ export function highlightDescription(text: string) {
     },
     {
       value: "Lithe",
-      className: "text-violet-700",
+      className: "text-black",
     },
     {
       value: "Baza",
@@ -77,7 +77,7 @@ export function highlightDescription(text: string) {
     },
     {
       value: "Rialse",
-      className: "text-green",
+      className: "text-black",
     },
     {
       value: "terminal",
@@ -151,7 +151,7 @@ export default function Hero({
     >
       <div className="relative mx-auto max-w-3xl">
         <div className="mb-8 flex items-center gap-3">
-          <p className="shrink-0 font-mono text-xs uppercase tracking-[0.2em] text-cyan">
+          <p className="shrink-0 font-mono text-xs uppercase tracking-[0.2em] text-black">
             portfolio
           </p>
 
@@ -190,7 +190,7 @@ export default function Hero({
         <div className="mt-10 flex flex-wrap gap-3">
           <button
             onClick={() => onNavigate("baza")}
-            className="focus-ring rounded-md border border-cyan/40 bg-cyan/10 px-5 py-2.5 font-mono text-sm text-cyan transition-colors hover:bg-cyan/20"
+            className="focus-ring rounded-md border border-black/10 bg-black/10 px-5 py-2.5 font-mono text-sm text-black transition-colors hover:bg-black/20"
           >
             {data.openProjects}
           </button>
