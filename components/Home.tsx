@@ -21,7 +21,7 @@ const SECTION_IDS = [
     "baza",
     "rialse",
     "bando",
-    "litechat",
+    "lithechat",
     "oplayer",
     "bvf",
     "skills",

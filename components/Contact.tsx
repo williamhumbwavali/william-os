@@ -17,26 +17,56 @@ export default function Contact({ contact }: ContactProps) {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-16 overflow-hidden border-b border-black/10 bg-dots px-5 py-20 sm:px-10 lg:px-16"
+      className="
+        relative scroll-mt-16 overflow-hidden
+        border-b border-black/10
+        bg-white
+        px-5 py-20
+        transition-colors duration-300
+        dark:border-white/[0.07]
+        dark:bg-[#090a0a]
+        sm:px-10
+        lg:px-16
+      "
     >
+      {/* Dot pattern */}
+      <div className="pointer-events-none absolute inset-0 bg-dots" />
+
       <div className="relative mx-auto max-w-3xl">
         <div className="mb-8 flex items-center gap-3">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-cyan">
             {contact.label}
           </p>
 
-          <span className="h-px flex-1 bg-black/10" />
+          <span className="h-px flex-1 bg-black/10 dark:bg-[#20252b]" />
 
-          <span className="font-mono text-[11px] text-mutedDark">
+          <span className="font-mono text-[11px] text-mutedDark dark:text-[#66707c]">
             contact.md
           </span>
         </div>
 
-        <h2 className="mb-4 font-display text-3xl font-semibold text-black sm:text-4xl">
+        <h2
+          className="
+            mb-4
+            font-display text-3xl font-semibold
+            text-black
+            transition-colors duration-300
+            dark:text-[#c9d1d9]
+            sm:text-4xl
+          "
+        >
           {contact.title}
         </h2>
 
-        <p className="mb-8 max-w-md text-[15px] leading-relaxed text-muted">
+        <p
+          className="
+            mb-8 max-w-md
+            text-[15px] leading-relaxed
+            text-muted
+            transition-colors duration-300
+            dark:text-[#8b949e]
+          "
+        >
           {contact.description}
         </p>
 
@@ -58,7 +88,14 @@ export default function Contact({ contact }: ContactProps) {
                     href={link.href}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noreferrer" : undefined}
-                    className="focus-ring text-cyan underline decoration-cyan/30 underline-offset-4 transition-colors hover:decoration-cyan"
+                    className="
+                      focus-ring
+                      text-cyan
+                      underline decoration-cyan/30
+                      underline-offset-4
+                      transition-colors
+                      hover:decoration-cyan
+                    "
                   >
                     {link.value}
                   </a>
@@ -68,7 +105,15 @@ export default function Contact({ contact }: ContactProps) {
           </ul>
         </CodeFrame>
 
-        <p className="mt-10 font-mono text-xs text-mutedDark">
+        <p
+          className="
+            mt-10
+            font-mono text-xs
+            text-mutedDark
+            transition-colors duration-300
+            dark:text-[#66707c]
+          "
+        >
           ©{new Date().getFullYear()} William Humbwavali. All rights reserved.
         </p>
       </div>

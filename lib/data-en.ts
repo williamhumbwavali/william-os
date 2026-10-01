@@ -104,27 +104,20 @@ export type Project = {
     href: string;
   }[];
   cover: string;
-  accent: "cyan" | "purple" | "amber" | "green";
+  accent: "cyan" | "purple" | "amber" | "green" | "black";
 };
 
 export const site = {
   name: "William Humbwavali",
   role: "Software Developer",
-
-  headline: "Building software that becomes something more.",
-
+  headline: "Build software that becomes something more.",
   description:
-    "I'm William Humbwavali, a software developer from Angola. I build software, products, and tools for web and mobile. Explore my work, projects, and experience via the terminal.",
+    "I'm William Humbwavali, a Software Developer from Angola. I build software, products, and systems for web and mobile. Explore my work, projects, and experience through the terminal.",
   sessionStarted: "software.developer — session started",
-
   terminalClosed: "terminal.app — closed. click to open.",
-
   openProjects: "$ open ./projects",
-
   viewExperience: "$ cat experience.md",
-
   openContact: "$ open contact.md",
-
   primaryStack: [
     "TypeScript",
     "React",
@@ -133,7 +126,6 @@ export const site = {
     "NestJS",
     "PostgreSQL",
   ],
-
   copyright:
     "© 2026 William Humbwavali · Built with Next.js & Tailwind CSS.",
 };
@@ -142,12 +134,21 @@ export const about = {
   label: "about/bio.md",
   title: "About me",
   paragraphs: [
-    "I'm William, a Software Developer from Angola focused on building full-stack digital products, with experience across web and mobile applications, APIs, and developer tools.",
-    "Over the past few years, I've built software at different levels — from applications and platforms to frameworks and developer tools. I mainly work with TypeScript, React, Next.js, React Native, and NestJS.",
-    "I created Lithe, an open-source PHP framework built from scratch, and Bando CMS, an open-source headless CMS. I co-founded Baza, a mobility platform built for Luanda with web and mobile applications, and created and operated Rialse, an online store that was active in Angola from December 2024 through the end of 2025.",
-    "I also built a full-stack music platform and other independent projects, working across architecture, development, implementation, deployment, and operations. At 19, I took on the development leadership role at Njila, coordinating the team and contributing to technical decisions and the product roadmap.",
-    "Every project brought a different context, technology stack, and set of challenges. That journey — from building software from scratch to putting it into production and dealing with what happens afterward — defines how I work as a developer.",
+    "I'm William, a Software Developer from Angola. I work on full-stack development, building web and mobile applications and complete systems with TypeScript, JavaScript, and PHP.",
+
+    "My work covers products built from the ground up, from architecture and backend systems to interfaces, databases, APIs, and deployment. I primarily work with React, Next.js, React Native, NestJS, and PHP.",
+
+    "I created Lithe, an open-source PHP framework built from scratch, and Bando CMS, an open-source headless CMS. I also created and operated Rialse, an online store that was active in Angola from December 2024 through the end of 2025. I am currently developing Baza, an urban mobility startup initiative that is still being prepared for launch.",
+
+    "In 2025, I was part of Njila, an urban mobility startup that operated in Luanda, providing organized transportation for students from institutions such as ISPTEC. I took the lead on development, coordinating the team, defining tasks, and contributing to the product roadmap and technical decisions.",
+
+    "Across my own projects and real-world products, I have taken responsibility for different stages of software development, from architecture and implementation to deploying systems to production.",
   ],
+};
+
+export const experienceSection = {
+  label: "work/experience.md",
+  title: "Experience",
 };
 
 export const projects: Project[] = [
@@ -158,7 +159,7 @@ export const projects: Project[] = [
     tagline:
       "Urban mobility platform built with NestJS and React Native",
     description:
-      "A subscription-based mobility platform built for students and workers in Luanda. Baza allows users to reserve a seat in advance and use transportation with defined routes and schedules through weekly or monthly plans. As co-founder and CEO, I lead the project from its early concept through product development, contributing to strategy, architecture, development, and user experience. The ecosystem includes passenger and driver applications, an admin dashboard, backend infrastructure, and a pre-launch website.",
+      "A startup project in the mobility space, designed for students and workers in Luanda. Baza proposes a subscription-based transportation model with advance reservations, defined routes, and weekly or monthly plans. As a co-founder, I am developing the project from the initial concept, working across strategy, architecture, development, and user experience. The project includes passenger and driver applications, an admin dashboard, backend, and pre-launch website, and is currently in development and preparation for launch.",
     stack: [
       "Next.js",
       "TypeScript",
@@ -186,7 +187,7 @@ export const projects: Project[] = [
       },
     ],
     cover: "/projects/baza_1.png",
-    accent: "cyan",
+    accent: "black",
   },
 
   {
@@ -195,7 +196,7 @@ export const projects: Project[] = [
     name: "Bad Vibes Forever",
     tagline: "Full-stack music platform built with NestJS",
     description:
-      "An end-to-end music platform featuring authentication, user profiles, artists, followers, albums, playlists, favorites, playback, history, downloads, and music uploads. The project includes the frontend, REST API, database, authentication system, and file storage powered by Cloudflare R2.",
+      "A full-stack music platform built end to end, featuring authentication, user profiles, artists, followers, albums, playlists, favorites, playback, history, downloads, and music uploads. The project includes a frontend, REST API, database, authentication, and file storage powered by Cloudflare R2.",
     stack: [
       "Next.js",
       "React",
@@ -243,7 +244,7 @@ export const projects: Project[] = [
     name: "Lithe PHP",
     tagline: "Open-source PHP framework inspired by Express.js",
     description:
-      "A custom framework built from the ground up, focused on simplicity and development speed. Published on Packagist as lithephp/framework, with more than two dozen GitHub stars and a small ecosystem of satellite packages such as lithemod/env, lithemod/upload, lithemod/log, lithemod/validator, lithemod/session-support, and lithemod/jwt-auth, each solving common problems in an isolated and reusable way.",
+      "A custom framework written from scratch, focused on simplicity and development speed. Published on Packagist as lithephp/framework, with more than two dozen GitHub stars and a small ecosystem of satellite packages designed to solve common problems in isolated and reusable ways.",
     stack: [
       "PHP 8.2+",
       "Composer",
@@ -289,7 +290,7 @@ export const projects: Project[] = [
     name: "Bando CMS",
     tagline: "Open-source headless CMS for developers",
     description:
-      "An open-source, self-hosted headless CMS built for developers who need to create content-driven websites and platforms without building a CMS backend from scratch. Bando allows developers to model collections, define fields and relationships, manage content through a Studio, and consume data through a typed client, making it easier to build blogs, corporate websites, portals, and other content-driven platforms.",
+      "An open-source, self-hosted headless CMS built for developers who need to build websites and content platforms without having to develop a CMS backend from scratch. Bando allows developers to model collections, define fields and relationships, manage content through a Studio, and consume data through a typed client.",
     stack: [
       "TypeScript",
       "Node.js",
@@ -338,7 +339,7 @@ export const projects: Project[] = [
     name: "Rialse",
     tagline: "From framework to real-world product",
     description:
-      "An e-commerce platform built for the Angolan market, featuring product catalogs, categories, cart, user accounts, checkout, order history, and support. Rialse was one of the first products built with Lithe, the open-source PHP framework I created, turning a custom technology into a complete e-commerce application.",
+      "An e-commerce platform built for the Angolan market, featuring product catalogs, categories, shopping cart, user accounts, checkout, order history, and support. Rialse was one of the first products built with Lithe, the open-source PHP framework I created, turning a custom technology into a complete e-commerce application.",
     stack: [
       "E-commerce",
       "PHP",
@@ -366,6 +367,7 @@ export const projects: Project[] = [
     cover: "/projects/rialse.png",
     accent: "cyan",
   },
+
   {
     id: "oplayer",
     fileId: "oplayer",
@@ -405,13 +407,14 @@ export const projects: Project[] = [
     cover: "/projects/oplayer.png",
     accent: "cyan",
   },
+
   {
     id: "lithechat",
     fileId: "lithechat",
     name: "LitheChat",
     tagline: "Real-time private messaging platform",
     description:
-      "A real-time private messaging platform built around the Lithe ecosystem. The project combines a Next.js frontend with an HTTP API powered by LithePHP and a Workerman-based WebSocket server, using Redis Pub/Sub for event distribution and MySQL for persisting users, conversations, and messages.",
+      "A real-time private messaging platform built on the Lithe ecosystem. The project combines a Next.js frontend with an HTTP API powered by LithePHP and a WebSocket server built with Workerman, using Redis Pub/Sub for event distribution and MySQL for persistent storage of users, conversations, and messages.",
     stack: [
       "Next.js",
       "React",
@@ -453,103 +456,20 @@ export const projects: Project[] = [
   },
 ];
 
-export const skills = {
-  linguagens: [
-    "JavaScript",
-    "TypeScript",
-    "PHP",
-    "Python",
-    "C",
-  ],
-
-  frontend: [
-    "React",
-    "Next.js",
-    "React Native",
-    "Vue.js",
-    "Tailwind CSS",
-  ],
-
-  backend: [
-    "Node.js",
-    "NestJS",
-    "Laravel",
-    "Django",
-    "REST APIs",
-  ],
-
-  bancosDeDados: [
-    "PostgreSQL",
-    "MySQL",
-    "MongoDB",
-    "Redis",
-  ],
-
-  infraestrutura: [
-    "Docker",
-    "Linux",
-    "Nginx",
-    "Cloudflare",
-  ],
-
-  ferramentas: [
-    "Git",
-    "GitHub",
-    "VS Code",
-    "Figma",
-  ],
-
-  engenharia: [
-    "Software architecture",
-    "APIs",
-    "Distributed systems",
-  ],
-
-  devops: [
-    "CI/CD",
-    "Docker Compose",
-    "Deploy",
-    "Monitoring",
-  ],
-
-  marketingDigital: [
-    "SEO",
-    "Google Ads",
-    "Google Analytics",
-    "Social Media",
-  ],
-};
-
-export const skillsSection = {
-  label: "skills/stack.json",
-  title: "Skills",
-  labels: {
-    linguagens: "languages",
-    frontend: "frontend",
-    backend: "backend",
-    bancosDeDados: "databases",
-    infraestrutura: "infrastructure",
-    ferramentas: "tools",
-    engenharia: "engineering",
-    devops: "devops",
-    marketingDigital: "digitalMarketing",
-  },
-};
-
 export const timeline = [
   {
-    period: "In progress",
+    period: "Ongoing",
     title: "Computer Engineering",
     place: "UGS — University in Angola",
     description:
-      "Formal education in computer engineering, covering algorithms, data structures, computer networks, and software engineering.",
+      "Formal education in computer engineering, covering algorithms, data structures, computer networks, and software engineering fundamentals.",
   },
   {
     period: "1 year",
     title: "42 Luanda",
     place: "Piscine & peer-to-peer projects",
     description:
-      "A learning methodology without teachers or traditional classes, focused on projects, peer reviews, and problem-solving under pressure — from C to system-level algorithms.",
+      "A learning model without teachers or traditional classes, focused on project-based learning, peer evaluation, and problem solving under pressure — from C to system-level algorithms.",
   },
   {
     period: "Ongoing",
@@ -557,18 +477,13 @@ export const timeline = [
     place:
       "Lithe PHP · Baza · Rialse · Bad Vibes Forever · Bando CMS",
     description:
-      "The real school: building, shipping, and maintaining software for real users.",
+      "The real school: building, shipping, and maintaining software used by real people.",
   },
 ];
 
 export const education = {
   label: "education/timeline.md",
   title: "Education",
-};
-
-export const experienceSection = {
-  label: "work/experience.md",
-  title: "Experience",
 };
 
 export const experience = [
@@ -578,22 +493,39 @@ export const experience = [
     company: "Njila",
     location: "Angola",
     description:
-      "At 19, I took on development leadership at an urban mobility startup focused on students. I coordinated the development team, contributed to roadmap and architecture decisions, and worked on security and performance, as well as features such as real-time tracking and scheduling.",
-    stack: ["Laravel", "PHP", "Vue.js", "Inertia.js", "NestJS", "React Native", "Next.JS"],
+      "I led the development of Njila, an urban mobility startup that operated in Luanda in 2025, focused on student transportation, including students from ISPTEC. I coordinated the development team, contributed to the product roadmap and decisions around architecture, security, and performance, and developed core platform features including real-time tracking and trip scheduling.",
+    stack: [
+      "Laravel",
+      "PHP",
+      "Vue.js",
+      "Inertia.js",
+      "NestJS",
+      "React Native",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "REST API",
+      "WebSockets",
+      "Git",
+    ],
   },
+
   {
     period: "Freelance",
     title: "Front-End Developer",
     company: "Cubicou.ao",
     location: "Angola",
     description:
-      "Developed the frontend of the Cubicou.ao platform, building responsive interfaces and reusable components while integrating REST APIs for communication with the backend and application data.",
+      "I developed the frontend of Cubicou, an Angolan real estate platform built to centralize property listings and connect property owners, agents, and people looking for houses, apartments, land, and commercial spaces. I was responsible for building interfaces, reusable components, and backend API integrations, including property search, listing presentation, and other platform flows.",
     stack: [
       "Next.js",
       "React",
+      "TypeScript",
       "Tailwind CSS",
       "REST APIs",
-      "TypeScript",
     ],
   },
 ];
@@ -601,7 +533,8 @@ export const experience = [
 export const contact = {
   label: "contact.md",
   title: "Let's talk",
-  description: "Software needs to work. I build, solve, and deliver.",
+  description:
+    "Software needs to work. I build, solve, and ship.",
   links: [
     {
       label: "GitHub",
@@ -649,13 +582,17 @@ export const bootLog = [
 
 export const terminal = {
   closeLabel: "Close terminal",
-  ariaLabel: "Type a terminal command",
+  ariaLabel: "Enter a terminal command",
   placeholder: "type a command... (try: help)",
   quickLabel: "new here? try:",
   home: "~/william — zsh",
   bootScript: [
     { prompt: true, text: "whoami" },
-    { prompt: false, text: "William Humbwavali", tone: "ink" as const },
+    {
+      prompt: false,
+      text: "William Humbwavali",
+      tone: "ink" as const,
+    },
     {
       prompt: false,
       text: "> Software Developer · Luanda, Angola",
@@ -673,6 +610,81 @@ export const terminal = {
       text: "lithe-php/  bando/  baza/  rialse/  bvf/",
       tone: "cyan" as const,
     },
+  ],
+};
+
+export const skillsSection = {
+  label: "skills/stack.json",
+  title: "Skills",
+  labels: {
+    linguagens: "languages",
+    frontend: "frontend",
+    backend: "backend",
+    bancosDeDados: "databases",
+    infraestrutura: "infrastructure",
+    ferramentas: "tools",
+    engenharia: "engineering",
+    devops: "devops",
+    marketingDigital: "digitalMarketing",
+  },
+};
+
+export const skills = {
+  linguagens: [
+    "JavaScript",
+    "TypeScript",
+    "PHP",
+    "Python",
+    "C",
+  ],
+  frontend: [
+    "React",
+    "Next.js",
+    "React Native",
+    "Vue.js",
+    "Tailwind CSS",
+  ],
+  backend: [
+    "Node.js",
+    "NestJS",
+    "Laravel",
+    "Django",
+    "REST APIs",
+  ],
+  bancosDeDados: [
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "Redis",
+  ],
+  infraestrutura: [
+    "Docker",
+    "Linux",
+    "Nginx",
+    "Cloudflare",
+  ],
+  ferramentas: [
+    "Git",
+    "GitHub",
+    "VS Code",
+    "Figma",
+  ],
+  engenharia: [
+    "Software Architecture",
+    "APIs",
+    "Distributed Systems",
+  ],
+  devops: [
+    "CI/CD",
+    "Docker Compose",
+    "Deployment",
+    "Monitoring",
+  ],
+  marketingDigital: [
+    "SEO",
+    "Google Ads",
+    "Google Analytics",
+    "Social Media",
   ],
 };
 

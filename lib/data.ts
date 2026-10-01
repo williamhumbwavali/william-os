@@ -142,11 +142,15 @@ export const about = {
   label: "about/bio.md",
   title: "Sobre mim",
   paragraphs: [
-    "Sou o William, Software Developer de Angola, focado em construir produtos digitais full-stack, com experiência em aplicações web, mobile, APIs e ferramentas para developers.",
-    "Nos últimos anos, tenho construído software em diferentes níveis — de aplicações e plataformas a frameworks e ferramentas para developers. Trabalho principalmente com TypeScript, React, Next.js, React Native e NestJS.",
-    "Criei o Lithe, um framework PHP open-source construído do zero, e o Bando CMS, um CMS headless open-source. Cofundei o Baza, uma plataforma de mobilidade criada para Luanda, com aplicações web e mobile, e criei e operei a Rialse, uma loja online que esteve em funcionamento em Angola entre dezembro de 2024 e o final de 2025.",
-    "Também desenvolvi uma plataforma de música full-stack e outros projetos independentes, trabalhando desde a arquitetura e desenvolvimento até à implementação, deployment e operação. Aos 19 anos, assumi a liderança do desenvolvimento na Njila, coordenando a equipa e participando nas decisões técnicas e no roadmap do produto.",
-    "Cada projeto trouxe um contexto, tecnologias e desafios diferentes. É esse percurso — entre criar software do zero, colocá-lo em produção e lidar com o que acontece depois — que define o meu trabalho como developer.",
+    "Sou o William, Software Developer de Angola. Trabalho com desenvolvimento full-stack, criando aplicações web, mobile e sistemas completos com TypeScript, JavaScript e PHP.",
+
+    "O meu trabalho inclui produtos desenvolvidos de raiz, desde a arquitetura e backend até às interfaces, bases de dados, APIs e deployment. Trabalho principalmente com React, Next.js, React Native, NestJS e PHP.",
+
+    "Criei o Lithe, um framework PHP open-source desenvolvido do zero, e o Bando CMS, um CMS headless open-source. Também criei e operei a Rialse, uma loja online que esteve em funcionamento em Angola entre dezembro de 2024 e o final de 2025. Atualmente, estou a desenvolver o Baza, uma iniciativa de startup de mobilidade urbana, ainda em preparação para o lançamento.",
+
+    "Em 2025, fiz parte da Njila, uma startup de mobilidade urbana que operou em Luanda, levando estudantes de instituições como o ISPTEC através de um serviço de transporte organizado. Assumi a liderança do desenvolvimento, coordenando a equipa, definindo tarefas e acompanhando o roadmap e as decisões técnicas do produto.",
+
+    "Entre projetos próprios e experiência em produtos reais, tenho assumido responsabilidades em diferentes etapas do desenvolvimento de software, desde decisões de arquitetura e implementação até à colocação dos sistemas em produção."
   ],
 };
 
@@ -163,7 +167,7 @@ export const projects: Project[] = [
     tagline:
       "Plataforma de mobilidade urbana construída com NestJS e React Native",
     description:
-      "Uma plataforma de mobilidade por assinatura criada para estudantes e trabalhadores em Luanda. O Baza permite reservar um lugar antecipadamente e utilizar transporte com rota e horário definidos, através de planos semanais ou mensais. Como cofundador e CEO, conduzo o projeto desde a concepção da ideia até à construção do produto, participando da estratégia, arquitetura, desenvolvimento e experiência do utilizador. O ecossistema inclui aplicações para passageiros e motoristas, painel administrativo, backend e infraestrutura, além do site de pré-lançamento.",
+      "Projeto de startup na área da mobilidade, pensado para estudantes e trabalhadores em Luanda. O Baza propõe um modelo de transporte por assinatura, com reservas antecipadas, rotas definidas e planos semanais ou mensais. Como cofundador, estou a desenvolver o projeto desde a concepção da ideia, trabalhando na estratégia, arquitetura, desenvolvimento e experiência do utilizador. O projeto conta com aplicações para passageiros e motoristas, painel administrativo, backend e site de pré-lançamento, estando ainda numa fase de desenvolvimento e preparação para o lançamento.",
     stack: [
       "Next.js",
       "TypeScript",
@@ -495,8 +499,25 @@ export const experience = [
     company: "Njila",
     location: "Angola",
     description:
-      "Aos 19 anos, assumi a liderança do desenvolvimento de uma startup de mobilidade urbana focada em estudantes. Coordenei a equipe de desenvolvimento, participei da definição do roadmap e das decisões de arquitetura, segurança e performance, além de desenvolver funcionalidades como rastreamento em tempo real e agendamento.",
-    stack: ["Laravel", "PHP", "Vue.js", "Inertia.js", "NestJS", "React Native", "Next.JS"],
+      "Assumi a liderança do desenvolvimento da Njila, uma startup de mobilidade urbana que operou em Luanda em 2025, com foco no transporte de estudantes, incluindo estudantes do ISPTEC. Coordenei a equipa de desenvolvimento, participei na definição do roadmap e das decisões de arquitetura, segurança e performance, e desenvolvi funcionalidades centrais da plataforma, incluindo rastreamento em tempo real e agendamento de viagens.",
+
+    stack: [
+      "Laravel",
+      "PHP",
+      "Vue.js",
+      "Inertia.js",
+      "NestJS",
+      "React Native",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "REST API",
+      "WebSockets",
+      "Git"
+    ],
   },
   {
     period: "Freelance",
@@ -504,8 +525,15 @@ export const experience = [
     company: "Cubicou.ao",
     location: "Angola",
     description:
-      "Desenvolvimento do frontend da plataforma Cubicou.ao, criando interfaces responsivas e componentes reutilizáveis, além da integração com APIs do backend para comunicação e consumo de dados da aplicação.",
-    stack: ["Next.js", "React", "Tailwind CSS", "REST APIs", "TypeScript"],
+      "Desenvolvi o frontend da Cubicou, uma plataforma imobiliária angolana criada para centralizar anúncios de imóveis e facilitar a ligação entre proprietários, agentes e pessoas à procura de casas, apartamentos, terrenos e espaços comerciais. Fui responsável pela construção das interfaces, componentes reutilizáveis e integração com as APIs do backend, trabalhando na experiência de pesquisa, apresentação dos imóveis e restantes fluxos da plataforma.",
+
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "REST APIs"
+    ],
   },
 ];
 

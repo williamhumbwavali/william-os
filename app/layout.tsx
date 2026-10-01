@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Google_Sans, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const display = Google_Sans({
   subsets: ["latin"],
@@ -40,11 +41,14 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="pt-AO"
+      lang="pt"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
+      suppressHydrationWarning
     >
-      <body className="bg-white font-body text-black antialiased">
-        {children}
+      <body className="font-body antialiased">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

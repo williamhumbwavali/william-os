@@ -12,8 +12,8 @@ export type CommandResult = {
 };
 
 const toneCls: Record<NonNullable<OutputLine["tone"]>, string> = {
-  ink: "text-black",
-  muted: "text-muted",
+  ink: "text-black dark:text-[#c9d1d9]",
+  muted: "text-muted dark:text-[#8b949e]",
   cyan: "text-cyan",
   amber: "text-amber",
   purple: "text-purple",

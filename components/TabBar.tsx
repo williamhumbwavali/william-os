@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface TabBarProps {
   activeId: string;
@@ -33,6 +34,8 @@ export default function TabBar({
 }: TabBarProps) {
   const [time, setTime] = useState("");
 
+  const { isDark, toggleTheme } = useTheme();
+
   useEffect(() => {
     const update = () => {
       setTime(
@@ -50,7 +53,9 @@ export default function TabBar({
     return () => clearInterval(id);
   }, [ui.locale]);
 
-  const changeLocale = (newLocale: "pt-PT" | "en-US") => {
+  const changeLocale = (
+    newLocale: "pt-PT" | "en-US"
+  ) => {
     if (newLocale === ui.locale) return;
 
     localStorage.setItem("locale", newLocale);
@@ -74,12 +79,12 @@ export default function TabBar({
   };
 
   return (
-    <div className="sticky top-0 z-30 border-b border-black/10 bg-white/90 backdrop-blur-xl">
+    <div className="sticky top-0 z-30 border-b border-black/10 bg-white/90 backdrop-blur-xl transition-colors dark:border-white/10 dark:bg-[#090a0a]">
       <div className="flex items-center">
         {/* Tabs */}
         <div className="flex flex-1 items-center overflow-x-auto no-scrollbar">
           {/* whOS */}
-          <div className="flex shrink-0 items-center gap-2 border-r border-black/10 px-4 py-3 font-mono text-xs text-muted">
+          <div className="flex shrink-0 items-center gap-2 border-r border-black/10 px-4 py-3 font-mono text-xs text-muted dark:border-white/10">
             <span className="h-2 w-2 rounded-full bg-cyan" />
             whEnv
           </div>
@@ -97,13 +102,13 @@ export default function TabBar({
               <button
                 key={file.id}
                 onClick={() => onNavigate(file.id)}
-                className={`focus-ring flex shrink-0 items-center gap-2 border-r border-black/10 px-4 py-3 font-mono text-xs transition-colors ${active
-                    ? "bg-neutral-100 text-neutral-950"
-                    : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-950"
-                  }`}
+                className={`focus-ring flex shrink-0 items-center gap-2 border-r border-black/10 px-4 py-3 font-mono text-xs transition-colors dark:border-white/10 ${
+                  active
+                    ? "bg-neutral-100 text-neutral-950 dark:bg-white/[0.06] dark:text-white"
+                    : "text-neutral-500 hover:bg-neutral-50 hover:text-neutral-950 dark:text-neutral-500 dark:hover:bg-white/[0.03] dark:hover:text-white"
+                }`}
               >
                 <span className={color}>●</span>
-
                 {file.label}
               </button>
             );
@@ -119,10 +124,11 @@ export default function TabBar({
               ? ui.closeTerminal
               : ui.openTerminal
           }
-          className={`focus-ring flex shrink-0 items-center gap-2 border-l border-black/10 px-4 py-3 font-mono text-xs transition-colors ${terminalOpen
-              ? "text-cyan-600"
-              : "text-neutral-500 hover:text-neutral-950"
-            }`}
+          className={`focus-ring flex shrink-0 items-center gap-2 border-l border-black/10 px-4 py-3 font-mono text-xs transition-colors dark:border-white/10 ${
+            terminalOpen
+              ? "text-cyan-600 dark:text-cyan-400"
+              : "text-neutral-500 hover:text-neutral-950 dark:hover:text-white"
+          }`}
         >
           <span>&gt;_</span>
 
@@ -131,8 +137,66 @@ export default function TabBar({
           </span>
         </button>
 
-        {/* Language + Time */}
-        <div className="hidden shrink-0 items-center gap-3 border-l border-black/10 px-4 py-2.5 sm:flex">
+        {/* Theme + Language + Time */}
+        <div className="hidden shrink-0 items-center gap-3 border-l border-black/10 px-4 py-2.5 sm:flex dark:border-white/10">
+          {/* Theme */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={
+              isDark
+                ? "Switch to light mode"
+                : "Switch to dark mode"
+            }
+            title={
+              isDark
+                ? "Light mode"
+                : "Dark mode"
+            }
+            className="flex h-7 w-7 items-center justify-center rounded-md text-neutral-500 transition-colors hover:bg-black/5 hover:text-neutral-950 dark:hover:bg-white/10 dark:hover:text-white"
+          >
+            {isDark ? (
+              /* Sun */
+              <svg
+                className="h-3.5 w-3.5"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="8"
+                  cy="8"
+                  r="3"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                />
+
+                <path
+                  d="M8 1.5V3M8 13V14.5M14.5 8H13M3 8H1.5M12.6 3.4L11.55 4.45M4.45 11.55L3.4 12.6M12.6 12.6L11.55 11.55M4.45 4.45L3.4 3.4"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  strokeLinecap="round"
+                />
+              </svg>
+            ) : (
+              /* Moon */
+              <svg
+                className="h-3.5 w-3.5"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M13.5 9.8A5.8 5.8 0 0 1 6.2 2.5a5.8 5.8 0 1 0 7.3 7.3Z"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            )}
+          </button>
+
           {/* Language */}
           <div className="relative">
             <select
@@ -140,8 +204,8 @@ export default function TabBar({
               onChange={(event) =>
                 changeLocale(
                   event.target.value as
-                  | "pt-PT"
-                  | "en-US"
+                    | "pt-PT"
+                    | "en-US"
                 )
               }
               aria-label={ui.language}
@@ -163,15 +227,16 @@ export default function TabBar({
                 hover:bg-neutral-200
                 focus:border-black/20
                 focus:bg-neutral-100
+                dark:border-white/10
+                dark:bg-white/[0.05]
+                dark:text-neutral-400
+                dark:hover:bg-white/[0.08]
+                dark:focus:border-white/20
+                dark:focus:bg-white/[0.08]
               "
             >
-              <option value="pt-PT">
-                PT
-              </option>
-
-              <option value="en-US">
-                EN
-              </option>
+              <option value="pt-PT">PT</option>
+              <option value="en-US">EN</option>
             </select>
 
             {/* Chevron */}

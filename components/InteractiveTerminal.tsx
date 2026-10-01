@@ -214,20 +214,18 @@ export default function InteractiveTerminal({
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-black/10 bg-white shadow-sm">
+    <div className="overflow-hidden rounded-lg border border-black/10 bg-white shadow-sm dark:border-[#20252b] dark:bg-[#0c0d0c]">
       {/* Window header */}
-      <div className="flex items-center gap-2 border-b border-black/10 bg-neutral-50 px-4 py-2.5">
+      <div className="flex items-center gap-2 border-b border-black/10 bg-neutral-50 px-4 py-2.5 dark:border-[#20252b] dark:bg-[#0c0d0c]">
         <button
           onClick={onClose}
           aria-label={terminal.closeLabel}
           className="focus-ring h-2.5 w-2.5 rounded-full bg-red transition-transform hover:scale-125"
         />
-
         <span className="h-2.5 w-2.5 rounded-full bg-amber" />
-
         <span className="h-2.5 w-2.5 rounded-full bg-green" />
 
-        <span className="ml-3 font-mono text-xs text-muted">
+        <span className="ml-3 font-mono text-xs text-muted dark:text-[#66707c]">
           {terminal.home}
         </span>
       </div>
@@ -236,7 +234,7 @@ export default function InteractiveTerminal({
       <div
         ref={scrollRef}
         onClick={() => inputRef.current?.focus()}
-        className="max-h-[360px] cursor-text overflow-y-auto bg-white p-5 font-mono text-[13px] leading-relaxed sm:p-6 sm:text-sm"
+        className="max-h-[360px] cursor-text overflow-y-auto bg-white p-5 font-mono text-[13px] leading-relaxed dark:bg-[#0d0f0f] sm:p-6 sm:text-sm"
       >
         {history.map((line, index) =>
           line.kind === "input" ? (
@@ -249,7 +247,7 @@ export default function InteractiveTerminal({
                 ~
               </span>
 
-              <span className="text-gray-300">
+              <span className="text-gray-700 dark:text-[#c9d1d9]">
                 {line.text}
               </span>
             </div>
@@ -288,21 +286,21 @@ export default function InteractiveTerminal({
               autoComplete="off"
               aria-label={terminal.ariaLabel}
               placeholder={terminal.placeholder}
-              className="w-full bg-transparent text-gray-300 caret-cyan outline-none placeholder:text-mutedDark"
+              className="w-full bg-transparent text-gray-700 caret-cyan outline-none placeholder:text-mutedDark dark:text-[#c9d1d9]"
             />
           </form>
         )}
 
         {booting && (
-          <span className="ml-6 animate-blink text-gray-300">
+          <span className="ml-6 animate-blink text-gray-700 dark:text-[#c9d1d9]">
             ▍
           </span>
         )}
       </div>
 
       {/* Quick commands */}
-      <div className="flex flex-wrap items-center gap-2 border-t border-black/10 bg-neutral-50 px-4 py-3">
-        <span className="font-mono text-[11px] text-mutedDark">
+      <div className="flex flex-wrap items-center gap-2 border-t border-black/10 bg-neutral-50 px-4 py-3 dark:border-[#20252b] dark:bg-[#0c0d0c]">
+        <span className="font-mono text-[11px] text-mutedDark dark:text-[#66707c]">
           {terminal.quickLabel}
         </span>
 
@@ -311,7 +309,7 @@ export default function InteractiveTerminal({
             key={command}
             onClick={() => typeCommand(command)}
             disabled={booting}
-            className="focus-ring rounded border border-black/10 bg-white px-2.5 py-1 font-mono text-[11px] text-cyan transition-colors hover:border-cyan/40 hover:bg-cyan/10 disabled:opacity-40"
+            className="focus-ring rounded border border-black/10 bg-white px-2.5 py-1 font-mono text-[11px] text-cyan  hover:border-cyan/40 hover:bg-cyan/10 disabled:opacity-40 dark:border-[#242a30] dark:bg-[#151818] dark:text-[#67e8f9] dark:hover:border-cyan/30 dark:hover:bg-cyan/10"
           >
             {command}
           </button>
