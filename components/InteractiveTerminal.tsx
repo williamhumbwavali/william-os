@@ -214,7 +214,7 @@ export default function InteractiveTerminal({
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-black/10 bg-white shadow-sm dark:border-[#20252b] dark:bg-[#0c0d0c]">
+    <div className="overflow-hidden rounded-lg border border-black/10 bg-white dark:border-[#20252b] dark:bg-[#0c0d0c]">
       {/* Window header */}
       <div className="flex items-center gap-2 border-b border-black/10 bg-neutral-50 px-4 py-2.5 dark:border-[#20252b] dark:bg-[#0c0d0c]">
         <button
