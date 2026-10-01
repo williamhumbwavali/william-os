@@ -14,7 +14,7 @@ export default function BootScreen({
   const [progress, setProgress] = useState(0);
   const [logIndex, setLogIndex] = useState(0);
   const [fading, setFading] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   const reduced = useRef(false);
 
